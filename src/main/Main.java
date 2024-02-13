@@ -1,17 +1,15 @@
 
 package main;
 
-import GUI.View;
+import GUI.AppView;
 
 
 public class Main {
     
     public static void main(String[] args) {
         System.out.println("Prueba");
-        View view = new View();
+        AppView view = new AppView();
         view.setVisible(true);
-        view.setLocationRelativeTo(null);
-        
       
                 
     }

@@ -1,4 +1,3 @@
-
 package GUI;
 
 import java.awt.Component;
@@ -13,19 +12,17 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-
 public class AppView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AppView
-     */
+   
     private static int fileCounter = 1;
-    
     private static JFrame frame;
-    
+
     
     public AppView() {
         initComponents();
+        this.setTitle("DataForge");
+        this.setResizable(false);
+        setLocationRelativeTo(null);// posicion de la ventana en el centro
     }
 
     /**
@@ -37,6 +34,7 @@ public class AppView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         tabbedPane = new javax.swing.JTabbedPane();
         scrollPane = new javax.swing.JScrollPane();
@@ -52,7 +50,11 @@ public class AppView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        jLabel3.setText("jLabel3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -60,6 +62,8 @@ public class AppView extends javax.swing.JFrame {
 
         tabbedPane.addTab("Nuevo Archivo 0", scrollPane);
 
+        btnNewFile.setBackground(new java.awt.Color(255, 204, 51));
+        btnNewFile.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnNewFile.setText("Nuevo Archivo");
         btnNewFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +71,8 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
+        btnOpenFile.setBackground(new java.awt.Color(255, 204, 51));
+        btnOpenFile.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnOpenFile.setText("Abrir Archivo");
         btnOpenFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +80,8 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteTab.setBackground(new java.awt.Color(255, 204, 51));
+        btnDeleteTab.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnDeleteTab.setText("Eliminar Pestaña");
         btnDeleteTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +89,8 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
+        btnSaveFile.setBackground(new java.awt.Color(255, 204, 51));
+        btnSaveFile.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnSaveFile.setText("Guardar Archivo");
         btnSaveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +102,8 @@ public class AppView extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane2.setViewportView(jTextArea3);
 
+        btnRun.setBackground(new java.awt.Color(255, 204, 51));
+        btnRun.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnRun.setText("Ejecutar");
         btnRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +111,8 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
+        btnReports.setBackground(new java.awt.Color(255, 204, 51));
+        btnReports.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
         btnReports.setText("Reportes");
         btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,8 +120,10 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 3, 14)); // NOI18N
         jLabel1.setText("Consola");
 
+        jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 3, 14)); // NOI18N
         jLabel2.setText("Entrada");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -150,143 +166,101 @@ public class AppView extends javax.swing.JFrame {
                     .addComponent(btnDeleteTab)
                     .addComponent(btnRun)
                     .addComponent(btnReports))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
-       JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(frame);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    if (selectedFile != null) {
-                        openFile(selectedFile);
-                    }
-                }
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(frame);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            if (selectedFile != null) {
+                openFile(selectedFile);
+            }
+        }
     }//GEN-LAST:event_btnOpenFileActionPerformed
-    
+
 
     private void btnDeleteTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTabActionPerformed
-       int selectedIndex = tabbedPane.getSelectedIndex();
-                if (selectedIndex != -1) {
-                    tabbedPane.remove(selectedIndex);
-                }
+        int selectedIndex = tabbedPane.getSelectedIndex();
+        if (selectedIndex != -1) {
+            tabbedPane.remove(selectedIndex);
+        }
     }//GEN-LAST:event_btnDeleteTabActionPerformed
 
     private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
-    addNewTab("Nuevo archivo " + fileCounter ++);        // TODO add your handling code here:
+        addNewTab("Nuevo archivo " + fileCounter++);        // TODO add your handling code here:
     }//GEN-LAST:event_btnNewFileActionPerformed
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
-            int selectedIndex = tabbedPane.getSelectedIndex();
-                if (selectedIndex != -1) {
-                    JScrollPane scrollPane = (JScrollPane) tabbedPane.getComponentAt(selectedIndex);
-                    JTextArea textArea = (JTextArea) scrollPane.getViewport().getView();
-                    //saveFile(textArea, tabbedPane.getTitleAt(selectedIndex));
-                    
-                       JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setSelectedFile(new File(tabbedPane.getTitleAt(selectedIndex)));
-        int returnValue = fileChooser.showSaveDialog(frame);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            try (PrintWriter writer = new PrintWriter(file)) {
-                writer.print(textArea.getText());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        int selectedIndex = tabbedPane.getSelectedIndex();
+        if (selectedIndex != -1) {
+            JScrollPane scrollPane1 = (JScrollPane) tabbedPane.getComponentAt(selectedIndex);
+            JTextArea textArea = (JTextArea) scrollPane1.getViewport().getView();
+            saveFile(textArea, tabbedPane.getTitleAt(selectedIndex));
+
+           
+
         }
-    
-                }
     }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
         int selectedIndex = tabbedPane.getSelectedIndex();
         if (selectedIndex != -1) {
             Component selectedComponent = tabbedPane.getComponentAt(selectedIndex);
-            if (selectedComponent instanceof JScrollPane) {
-                JScrollPane scrollPane = (JScrollPane) selectedComponent;
-                Component viewport = scrollPane.getViewport().getView();
-                if (viewport instanceof JTextArea) {
-                    JTextArea textArea = (JTextArea) viewport;
+            if (selectedComponent instanceof JScrollPane scrollPane1) {
+                Component viewport = scrollPane1.getViewport().getView();
+                if (viewport instanceof JTextArea textArea) {
                     String text = textArea.getText();
                     System.out.println(text);
-            // Aquí puedes copiar el texto a donde lo necesites
+                    // Aquí puedes copiar el texto a donde lo necesites
+                }
+            }
         }
-    }
-}
     }//GEN-LAST:event_btnRunActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReportsActionPerformed
+
     
-    
-    
+    // functions
     private void addNewTab(String title) {
-   
-    JTextArea textArea = new JTextArea();
-    JScrollPane scrollPane1 = new JScrollPane(textArea);
-        
-    tabbedPane.addTab(title, scrollPane1);
-}
+
+        JTextArea textArea = new JTextArea();
+        JScrollPane scrollPane1 = new JScrollPane(textArea);
+
+        tabbedPane.addTab(title, scrollPane1);
+    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AppView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AppView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AppView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AppView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AppView().setVisible(true);
-            }
-        });
-    }
-    
-        private  void openFile(File file) {
+    private void openFile(File file) {
+        
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             StringBuilder content = new StringBuilder();
             String line;
@@ -302,9 +276,23 @@ public class AppView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+    
+    
+private static void saveFile(JTextArea textArea, String fileName) {
+    
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File(fileName));
         
-        
+        int returnValue = fileChooser.showSaveDialog(frame);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try (PrintWriter writer = new PrintWriter(file)) {
+                writer.print(textArea.getText());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteTab;
@@ -315,6 +303,7 @@ public class AppView extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveFile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
