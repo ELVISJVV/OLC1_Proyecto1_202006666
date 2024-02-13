@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class AppView extends javax.swing.JFrame {
-   
+
     private static int fileCounter = 1;
     private static JFrame frame;
 
-    
     public AppView() {
         initComponents();
         this.setTitle("DataForge");
@@ -60,7 +60,7 @@ public class AppView extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         scrollPane.setViewportView(jTextArea1);
 
-        tabbedPane.addTab("Nuevo Archivo 0", scrollPane);
+        tabbedPane.addTab("Archivo.df", scrollPane);
 
         btnNewFile.setBackground(new java.awt.Color(255, 204, 51));
         btnNewFile.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
@@ -193,10 +193,14 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
         JFileChooser fileChooser = new JFileChooser();
+
         int returnValue = fileChooser.showOpenDialog(frame);
+        // APPROVE_OPTION sirve para verificar si se selecciono un archivo
         if (returnValue == JFileChooser.APPROVE_OPTION) {
+            // obtener la ruta del archivo
             File selectedFile = fileChooser.getSelectedFile();
             if (selectedFile != null) {
+
                 openFile(selectedFile);
             }
         }
@@ -211,7 +215,7 @@ public class AppView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteTabActionPerformed
 
     private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
-        addNewTab("Nuevo archivo " + fileCounter++);        // TODO add your handling code here:
+        addNewTab("Archivo" + fileCounter++ + ".df");        // TODO add your handling code here:
     }//GEN-LAST:event_btnNewFileActionPerformed
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
@@ -219,9 +223,8 @@ public class AppView extends javax.swing.JFrame {
         if (selectedIndex != -1) {
             JScrollPane scrollPane1 = (JScrollPane) tabbedPane.getComponentAt(selectedIndex);
             JTextArea textArea = (JTextArea) scrollPane1.getViewport().getView();
+            System.out.println(textArea);
             saveFile(textArea, tabbedPane.getTitleAt(selectedIndex));
-
-           
 
         }
     }//GEN-LAST:event_btnSaveFileActionPerformed
@@ -245,7 +248,6 @@ public class AppView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReportsActionPerformed
 
-    
     // functions
     private void addNewTab(String title) {
 
@@ -258,9 +260,8 @@ public class AppView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     private void openFile(File file) {
-        
+
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             StringBuilder content = new StringBuilder();
             String line;
@@ -276,19 +277,22 @@ public class AppView extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    
-private static void saveFile(JTextArea textArea, String fileName) {
-    
+
+    private static void saveFile(JTextArea textArea, String fileName) {
+
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File(fileName));
-        
+
         int returnValue = fileChooser.showSaveDialog(frame);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             try (PrintWriter writer = new PrintWriter(file)) {
                 writer.print(textArea.getText());
+                
             } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null,
+                        "Su archivo no se ha guardado",
+                        "Advertencia", JOptionPane.WARNING_MESSAGE);
                 e.printStackTrace();
             }
         }
