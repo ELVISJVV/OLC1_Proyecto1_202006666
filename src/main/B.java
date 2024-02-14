@@ -8,6 +8,7 @@ public class B {
     private static JFrame frame;
     private static JTabbedPane tabbedPane;
     private static int fileCounter = 1;
+    private static File currentFile; // Guardar la referencia al archivo actual
 
     public static void main(String[] args) {
         frame = new JFrame("Editor Básico");
@@ -46,20 +47,7 @@ public class B {
         saveItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveCurrentTab();
-            }
-        });
-
-        JMenuItem saveAsItem = new JMenuItem("Guardar Como");
-        saveAsItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selectedIndex = tabbedPane.getSelectedIndex();
-                if (selectedIndex != -1) {
-                    JScrollPane scrollPane = (JScrollPane) tabbedPane.getComponentAt(selectedIndex);
-                    JTextArea textArea = (JTextArea) scrollPane.getViewport().getView();
-                    saveFileAs(textArea);
-                }
+                saveCurrentFile(); // Guardar automáticamente sin preguntar la ruta
             }
         });
 
@@ -77,10 +65,21 @@ public class B {
         fileMenu.add(newItem);
         fileMenu.add(openItem);
         fileMenu.add(saveItem);
-        fileMenu.add(saveAsItem);
         fileMenu.addSeparator();
         fileMenu.add(closeItem);
         menuBar.add(fileMenu);
+
+        // Botón para guardar automáticamente sin preguntar la ruta
+        JButton saveButton = new JButton("Guardar");
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                saveCurrentFile();
+            }
+        });
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(saveButton);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
 
         frame.setJMenuBar(menuBar);
         frame.add(tabbedPane);
@@ -105,20 +104,27 @@ public class B {
             JScrollPane scrollPane = (JScrollPane) tabbedPane.getComponentAt(lastIndex);
             JTextArea textArea = (JTextArea) scrollPane.getViewport().getView();
             textArea.setText(content.toString());
+            currentFile = file; // Guardar la referencia al archivo actual
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void saveCurrentTab() {
+    private static void saveFile(JTextArea textArea, File file) {
+        try (PrintWriter writer = new PrintWriter(file)) {
+            writer.print(textArea.getText());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void saveCurrentFile() {
         int selectedIndex = tabbedPane.getSelectedIndex();
         if (selectedIndex != -1) {
             JScrollPane scrollPane = (JScrollPane) tabbedPane.getComponentAt(selectedIndex);
             JTextArea textArea = (JTextArea) scrollPane.getViewport().getView();
-            String fileName = tabbedPane.getTitleAt(selectedIndex);
-            File file = new File(fileName);
-            if (file.exists()) {
-                saveFile(textArea, file);
+            if (currentFile != null) {
+                saveFile(textArea, currentFile);
             } else {
                 saveFileAs(textArea);
             }
@@ -131,18 +137,7 @@ public class B {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             saveFile(textArea, file);
-        }
-    }
-
-    private static void saveFile(JTextArea textArea, File file) {
-        try (PrintWriter writer = new PrintWriter(file)) {
-            writer.print(textArea.getText());
-            int selectedIndex = tabbedPane.getSelectedIndex();
-            if (selectedIndex != -1) {
-                tabbedPane.setTitleAt(selectedIndex, file.getName());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            currentFile = file; // Actualizar la referencia al archivo actual
         }
     }
 }

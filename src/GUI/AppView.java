@@ -193,11 +193,13 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-
+        String userDir = System.getProperty("user.dir");
+        fileChooser.setCurrentDirectory(new File(userDir));
         int returnValue = fileChooser.showOpenDialog(frame);
         // APPROVE_OPTION sirve para verificar si se selecciono un archivo
+
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-            // obtener la ruta del archivo
+            // obtener la ruta del archivo 
             File selectedFile = fileChooser.getSelectedFile();
             if (selectedFile != null) {
 
@@ -231,6 +233,7 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
         int selectedIndex = tabbedPane.getSelectedIndex();
+        System.out.println(selectedIndex);
         if (selectedIndex != -1) {
             Component selectedComponent = tabbedPane.getComponentAt(selectedIndex);
             if (selectedComponent instanceof JScrollPane scrollPane1) {
@@ -282,13 +285,15 @@ public class AppView extends javax.swing.JFrame {
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File(fileName));
+        String userDir = System.getProperty("user.dir");
+        fileChooser.setCurrentDirectory(new File(userDir));
 
         int returnValue = fileChooser.showSaveDialog(frame);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             try (PrintWriter writer = new PrintWriter(file)) {
                 writer.print(textArea.getText());
-                
+
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(null,
                         "Su archivo no se ha guardado",
