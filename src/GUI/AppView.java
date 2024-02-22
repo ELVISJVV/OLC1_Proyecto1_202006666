@@ -44,7 +44,7 @@ public class AppView extends javax.swing.JFrame {
         btnDeleteTab = new javax.swing.JButton();
         btnSaveFile = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        textAreaConsola = new javax.swing.JTextArea();
         btnRun = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -98,9 +98,9 @@ public class AppView extends javax.swing.JFrame {
             }
         });
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane2.setViewportView(jTextArea3);
+        textAreaConsola.setColumns(20);
+        textAreaConsola.setRows(5);
+        jScrollPane2.setViewportView(textAreaConsola);
 
         btnRun.setBackground(new java.awt.Color(255, 204, 51));
         btnRun.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 13)); // NOI18N
@@ -316,8 +316,8 @@ public class AppView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTabbedPane tabbedPane;
+    private javax.swing.JTextArea textAreaConsola;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,12 +7,15 @@ import GUI.AppView;
 import java.io.StringReader;
 
 
+
+
 public class Main {
 
+  public static String stringConsola = "";
     public static void main(String[] args) {
         System.out.println("Prueba");
         AppView view = new AppView();
-        view.setVisible(true);
+       view.setVisible(true);
 
         String entrada = """
                 23,5,,|6,
@@ -23,7 +26,7 @@ public class Main {
         analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
 
         // Analizar
-        analizar(entrada);
+//        analizar(entrada);
     }
 
     public static void analizadores(String ruta, String jflexFile, String cupFile) {
@@ -41,16 +44,16 @@ public class Main {
     }
 
     // Realizar Analisis
-    public static void analizar(String entrada) {
-        try {
-            compiler.Lexer lexer = new compiler.Lexer(new StringReader(entrada));
-            compiler.Parser parser = new compiler.Parser(lexer);
-            parser.parse();
-        } catch (Exception e) {
-            System.out.println("Error fatal en compilación de entrada.");
-            System.out.println(e);
-        }
-    }
+//    public static void analizar(String entrada) {
+//        try {
+//            compiler.Lexer lexer = new compiler.Lexer(new StringReader(entrada));
+//            compiler.Parser parser = new compiler.Parser(lexer);
+//            parser.parse();
+//        } catch (Exception e) {
+//            System.out.println("Error fatal en compilación de entrada.");
+//            System.out.println(e);
+//        }
+//    }
 }
 
 

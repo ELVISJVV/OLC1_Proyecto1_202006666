@@ -30,10 +30,48 @@ action code
 
 
 //------> Declaración de terminales
+
+terminal String RPROGRAM;
+terminal String REND;
+terminal String RVAR;
+terminal String RRES;
+terminal String RSUM;
+terminal String RMUL;
+terminal String RDIV;
+terminal String RMOD;
+terminal Strinq RMEDIA;
+terminal String RMEDIANA;
+terminal String RMODA;
+terminal String RVARIANZA;
+terminal String RMAX;
+terminal String RMIN;
 terminal String RPRINT;
-terminal String EXCL, PARDER, PARIZQ, PYC;
-terminal String ENTERO, CADENA;
-terminal String MAS;
+terminal String RCONSOLE;
+
+//terminal String RENDPRINT;
+
+terminal String EXCL;
+terminal String PARDER;
+terminal String PARIZQ;
+terminal String PYC;
+terminal String CORCHIZQ;
+terminal String CORCHDER;
+terminal String COMA;
+terminal String DOSPUNTOS;
+terminal String PUNTO;
+terminal String ARROBA;
+terminal String COMILLAS;
+
+//terminal String MAS;
+terminal String MENOS;
+terminal String IGUAL;
+terminal String MENOR;
+terminal String MAYOR;
+terminal String IGUALIGUAL;
+
+
+terminal String ENTERO;
+terminal String CADENA;
 
 //------> Declaración de no terminales
 non terminal inicio;
@@ -42,7 +80,8 @@ non terminal instruccion, expresion;
 non terminal print;
 
 //------> PRECEDENCIA
-precedence left MAS;
+//precedence left MAS;
+//precedence left POR;
 
 //------> Definir Simbolo Inicial
 start with inicio;
@@ -50,7 +89,7 @@ start with inicio;
 
 // ------------>  Producciones  <------------
 
-inicio ::= listainstr
+inicio ::=  RPROGRAM listainstr REND RPROGRAM
 ;
 
 listainstr ::= listainstr instruccion
@@ -60,10 +99,9 @@ listainstr ::= listainstr instruccion
 instruccion ::= print
 ;
 
-print ::= RPRINT EXCL PARIZQ expresion:exp PARDER PYC    {: util.Instruccion.print(exp.toString()); :}
+print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT expresion:exp REND   //{: util.Instruccion.print(exp.toString()); :}
 ;
 
-expresion ::= ENTERO:val    {: RESULT = val.toString(); :}
-        | CADENA:val        {: RESULT = val.toString(); :}
-        | expresion:izq MAS expresion:der    {: RESULT = util.Expresion.suma(izq.toString(), der.toString() ); :}
+expresion ::= ENTERO:val   // {: RESULT = val.toString(); :}
+        | CADENA:val       // {: RESULT = val.toString(); :}
 ;
