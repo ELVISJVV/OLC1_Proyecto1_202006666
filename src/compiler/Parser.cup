@@ -47,6 +47,8 @@ terminal String RMAX;
 terminal String RMIN;
 terminal String RPRINT;
 terminal String RCONSOLE;
+terminal String RCHAR;
+terminal String RDOUBLE;
 
 //terminal String RENDPRINT;
 
@@ -79,6 +81,7 @@ non terminal listainstr;
 non terminal instruccion, expresion;
 non terminal print;
 
+
 //------> PRECEDENCIA
 //precedence left MAS;
 //precedence left POR;
@@ -99,9 +102,11 @@ listainstr ::= listainstr instruccion
 instruccion ::= print
 ;
 
-print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT expresion:exp REND   //{: util.Instruccion.print(exp.toString()); :}
+print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL expresion:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
 ;
 
-expresion ::= ENTERO:val   // {: RESULT = val.toString(); :}
-        | CADENA:val       // {: RESULT = val.toString(); :}
+expresion ::= ENTERO:val   {: RESULT = val.toString(); :}
+        | CADENA:val        {: RESULT = val.toString(); :}
+        | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
 ;
+
