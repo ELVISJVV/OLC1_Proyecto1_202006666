@@ -11,8 +11,8 @@ public class sym {
   public static final int DOSPUNTOS = 27;
   public static final int RDIV = 8;
   public static final int RMIN = 15;
-  public static final int ENTERO = 36;
   public static final int RMODA = 12;
+  public static final int DOUBLE = 36;
   public static final int RMEDIA = 10;
   public static final int RMUL = 7;
   public static final int RMOD = 9;
@@ -83,7 +83,7 @@ public class sym {
   "MENOR",
   "MAYOR",
   "IGUALIGUAL",
-  "ENTERO",
+  "DOUBLE",
   "CADENA"
   };
 }

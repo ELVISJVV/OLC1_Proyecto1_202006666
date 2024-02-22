@@ -72,7 +72,7 @@ terminal String MAYOR;
 terminal String IGUALIGUAL;
 
 
-terminal String ENTERO;
+terminal String DOUBLE;
 terminal String CADENA;
 
 //------> Declaración de no terminales
@@ -105,8 +105,9 @@ instruccion ::= print
 print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL expresion:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
 ;
 
-expresion ::= ENTERO:val   {: RESULT = val.toString(); :}
+expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
         | CADENA:val        {: RESULT = val.toString(); :}
         | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
+
 ;
 

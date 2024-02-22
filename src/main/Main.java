@@ -13,18 +13,20 @@ public class Main {
 
   public static String stringConsola = "";
     public static void main(String[] args) {
-        System.out.println("Prueba");
+        System.out.println("Funcionando...");
 //        AppView view = new AppView();
 //       view.setVisible(true);
 
         String entrada = """
               PROGRAM
-              console::print = SUM(3,5) end;
+              console::print = "Hola Mundo" END;
+              console::print = SUM(3,8.9) END;
+              console::print = SUM(3,SUM(1,2)) end;
               END PROGRAM
                 """;
 
         // Generar Analizadores
-//        analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
+//      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
 
         // Analizar
         analizar(entrada);
@@ -55,6 +57,7 @@ public class Main {
             System.out.println(e);
         }
     }
+
 }
 
 

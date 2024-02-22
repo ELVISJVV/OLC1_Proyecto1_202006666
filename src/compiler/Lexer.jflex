@@ -20,7 +20,7 @@ import java_cup.runtime.*;
 
 // ------> Expresiones Regulares
 
-entero = [0-9]+
+double = [0-9]+(\.[0-9]+)?
 cadena = [\"][^\n\"]*[\"]
 
 
@@ -74,7 +74,7 @@ cadena = [\"][^\n\"]*[\"]
 
 
 // Expresiones
-{entero}  { return new Symbol(sym.ENTERO, yycolumn, yyline, yytext()); }
+{double}  { return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext()); }
 {cadena}  { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
 
 
