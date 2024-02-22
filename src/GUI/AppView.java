@@ -196,7 +196,7 @@ public class AppView extends javax.swing.JFrame {
         String userDir = System.getProperty("user.dir");
         fileChooser.setCurrentDirectory(new File(userDir));
         int returnValue = fileChooser.showOpenDialog(frame);
-        // APPROVE_OPTION sirve para verificar si se selecciono un archivo
+        // APPROVE_OPTION sirve para verificar si se seleccionó un archivo
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             // obtener la ruta del archivo 
