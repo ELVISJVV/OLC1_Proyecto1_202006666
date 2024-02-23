@@ -22,8 +22,10 @@ import java_cup.runtime.*;
 
 double = [0-9]+(\.[0-9]+)?
 cadena = [\"][^\n\"]*[\"]
-
-
+comentario = [!].*[\n]
+comentarioMultilinea = [<!]*([.]|[\n])*?[!>]
+entero = [0-9]+
+letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 
 %%
 // ------------  Reglas Lexicas -------------------
@@ -65,7 +67,7 @@ cadena = [\"][^\n\"]*[\"]
 "\""        {return new Symbol(sym.COMILLAS, yycolumn, yyline, yytext());}
 
 // Operadores
-//"+"         {return new Symbol(sym.MAS, yycolumn, yyline, yytext());}
+"+"         {}
 "-"         {return new Symbol(sym.MENOS, yycolumn, yyline, yytext());}
 "="         {return new Symbol(sym.IGUAL, yycolumn, yyline, yytext());}
 "<"         {return new Symbol(sym.MENOR, yycolumn, yyline, yytext());}
@@ -74,13 +76,12 @@ cadena = [\"][^\n\"]*[\"]
 
 
 // Expresiones
-{double}  { return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext()); }
-{cadena}  { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
-
-
-
-
-
+{double}        { return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext()); }
+{cadena}        { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
+{comentario}    {  }
+{comentarioMultilinea}    {  }
+{entero} {}
+{letra} {}
 
 //------> Ingorados
 [ \t\r\n\f]     {/* Espacios en blanco se ignoran */}

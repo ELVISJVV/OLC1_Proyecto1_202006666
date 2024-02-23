@@ -19,10 +19,20 @@ public class Main {
 
         String entrada = """
               PROGRAM
+              ! Esto es un comentario
               console::print = "Hola Mundo" END;
               console::print = SUM(3,8.9) END;
-              console::print = SUM(3,SUM(1,2)) end;
+                <! Esto es
+                 un comentario Multilínea !>
+              console::print = SUM(3,SUM(1,2)) end; ! Esto es un comentario de una sola línea
               END PROGRAM
+                <! Esto es un c
+                
+                
+                áéíoúAÁÉÍÓÚ Ñ ñ
+                !ADadad<<<!
+                
+                omentario  Multilínea !>
                 """;
 
         // Generar Analizadores
