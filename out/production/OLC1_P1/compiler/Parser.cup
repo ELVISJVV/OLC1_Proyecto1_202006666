@@ -84,6 +84,7 @@ non terminal inicio;
 non terminal listainstr;
 non terminal instruccion, expresion;
 non terminal print;
+nonterminal printlist;
 
 
 
@@ -113,13 +114,17 @@ instruccion ::= print
 
 
 
-print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL expresion:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
+print ::=  RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL printlist:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
+;
+
+printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq.toString() + der.toString();:}
+              | expresion:val                                {: RESULT = val.toString(); :}
 ;
 
 
 expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
-        | CADENA:val        {: RESULT = val.toString(); :}
-        | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
+           | CADENA:val        {:RESULT = val.replaceAll("\"", ""); :}
+           | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
 
 ;
 

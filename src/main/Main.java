@@ -7,11 +7,10 @@ import GUI.AppView;
 import java.io.StringReader;
 
 
-
-
 public class Main {
 
-  public static String stringConsola = "";
+    public static String stringConsola = "";
+
     public static void main(String[] args) {
         System.out.println("Funcionando...");
 //        AppView view = new AppView();
@@ -20,22 +19,22 @@ public class Main {
 
 
         String entrada = """
-              PROGRAM
-               console::print = "Hola Mundo" END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
-              console::print = SUM(3,8.9) END;
-                <! Esto es
-                 un comentario Multilínea !>
-              console::print = SUM(3,SUM(1,2)) end;
-                   ! Esto es un comentario de una sola línea
-              END PROGRAM<! Esto es un c
-                999999
+                PROGRAM
+                 console::print = "Hola Mundo"," a" END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
+                console::print = SUM(3,8.9),"hoáéíoúAÁÉÍÓÚ Ñ ñ6455.o078rdla" END;
+                  <! Esto es
+                   un comentario Multilínea !>
+                console::print = SUM(3,SUM(1,2)) end;
+                     ! Esto es un comentario de una sola línea
+                END PROGRAM<! Esto es un c
+                  999999
 
-                áéíoúAÁÉÍÓÚ Ñ ñ
-                !ADadad<<<!
+                  áéíoúAÁÉÍÓÚ Ñ ñ
+                  !ADadad<<<!
 
-                omentario  Multilínea !>
-                
-                """;
+                  omentario  Multilínea !>
+                  
+                  """;
 
         // Generar Analizadores
 //      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");

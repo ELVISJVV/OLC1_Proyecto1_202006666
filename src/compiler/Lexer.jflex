@@ -29,7 +29,6 @@ comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
 letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 id = {letra}({letra}|{entero})*
-salto = [\n]
 BLANCOS=[ \r\t]+
 %%
 // ------------  Reglas Lexicas -------------------
