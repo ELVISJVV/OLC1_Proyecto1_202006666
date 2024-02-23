@@ -17,28 +17,28 @@ public class Main {
 //        AppView view = new AppView();
 //       view.setVisible(true);
 
+
+
         String entrada = """
               PROGRAM
-              ! Esto es un comentario
-              console::print = "Hola Mundo" END;
+               console::print = "Hola Mundo" END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
               console::print = SUM(3,8.9) END;
                 <! Esto es
                  un comentario Multilínea !>
-              console::print = SUM(3,SUM(1,2)) end; ! Esto es un comentario de una sola línea
-              END PROGRAM
-                <! Esto es un c
-                
-                
+              console::print = SUM(3,SUM(1,2)) end;
+                   ! Esto es un comentario de una sola línea
+              END PROGRAM<! Esto es un c
+                999999
+
                 áéíoúAÁÉÍÓÚ Ñ ñ
                 !ADadad<<<!
-                
+
                 omentario  Multilínea !>
+                
                 """;
 
         // Generar Analizadores
 //      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
-
-        // Analizar
         analizar(entrada);
     }
 

@@ -22,11 +22,15 @@ import java_cup.runtime.*;
 
 double = [0-9]+(\.[0-9]+)?
 cadena = [\"][^\n\"]*[\"]
-comentario = [!].*[\n]
-comentarioMultilinea = [<!]*([.]|[\n])*?[!>]
+CARACTER = [^\r\n]
+//comentario = [!]([0-9]|[.])*[\n]
+comentario = "!"{CARACTER}*{double}?
+comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
 letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
-
+id = {letra}({letra}|{entero})*
+salto = [\n]
+BLANCOS=[ \r\t]+
 %%
 // ------------  Reglas Lexicas -------------------
 //------> Palabras Reservadas
@@ -49,7 +53,6 @@ letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 "print"     { return new Symbol(sym.RPRINT, yycolumn, yyline, yytext()); }
 "char"      { return new Symbol(sym.RCHAR, yycolumn, yyline, yytext()); }
 "double"    { return new Symbol(sym.RDOUBLE, yycolumn, yyline, yytext()); }
-//"endd"       { return new Symbol(sym.RENDPRINT, yycolumn, yyline, yytext()); }
 
 
 // Simbolos
@@ -78,13 +81,15 @@ letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 // Expresiones
 {double}        { return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext()); }
 {cadena}        { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
-{comentario}    {  }
+{comentario}    {}
 {comentarioMultilinea}    {  }
-{entero} {}
-{letra} {}
+
+{id}            { return new Symbol(sym.ID, yycolumn, yyline, yytext()); }
+{BLANCOS}      {}
+
 
 //------> Ingorados
-[ \t\r\n\f]     {/* Espacios en blanco se ignoran */}
+[ \t\r\n\f ]     {/* Espacios en blanco se ignoran */}
 
 //------> Errores Léxicos
 .           	{ System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn); }

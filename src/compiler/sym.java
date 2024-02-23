@@ -22,6 +22,7 @@ public class sym {
   public static final int ARROBA = 29;
   public static final int RDOUBLE = 19;
   public static final int RCONSOLE = 17;
+  public static final int ID = 38;
   public static final int EXCL = 20;
   public static final int EOF = 0;
   public static final int PARIZQ = 22;
@@ -84,7 +85,8 @@ public class sym {
   "MAYOR",
   "IGUALIGUAL",
   "DOUBLE",
-  "CADENA"
+  "CADENA",
+  "ID"
   };
 }
 

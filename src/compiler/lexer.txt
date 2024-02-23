@@ -25,7 +25,7 @@ cadena = [\"][^\n\"]*[\"]
 CARACTER = [^\r\n]
 //comentario = [!]([0-9]|[.])*[\n]
 comentario = "!"{CARACTER}*{double}?
-comentarioMultilinea = "<!"[^/]~"!>"
+comentarioMultilinea = [<!]*([.]|[\n])*?[!>]
 entero = [0-9]+
 letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 id = {letra}({letra}|{entero})*
@@ -83,7 +83,8 @@ BLANCOS=[ \r\t]+
 {cadena}        { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
 {comentario}    {}
 {comentarioMultilinea}    {  }
-
+{entero} {}
+{letra} {}
 {id}            { return new Symbol(sym.ID, yycolumn, yyline, yytext()); }
 {BLANCOS}      {}
 

@@ -72,14 +72,21 @@ terminal String MAYOR;
 terminal String IGUALIGUAL;
 
 
+
 terminal String DOUBLE;
 terminal String CADENA;
+//terminal String COMENTARIO ;
+terminal String ID;
+
 
 //------> Declaración de no terminales
 non terminal inicio;
 non terminal listainstr;
 non terminal instruccion, expresion;
 non terminal print;
+
+
+
 
 
 //------> PRECEDENCIA
@@ -97,13 +104,18 @@ inicio ::=  RPROGRAM listainstr REND RPROGRAM
 
 listainstr ::= listainstr instruccion
     | instruccion
+
 ;
 
 instruccion ::= print
+
 ;
+
+
 
 print ::= RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL expresion:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
 ;
+
 
 expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
         | CADENA:val        {: RESULT = val.toString(); :}
