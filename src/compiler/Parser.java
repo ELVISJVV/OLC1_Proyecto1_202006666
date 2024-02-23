@@ -227,7 +227,7 @@ class CUP$Parser$actions {
 		int derleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int derright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		 RESULT = izq.toString() + der.toString();
+		 RESULT = izq.toString() + ", " + der.toString();
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("printlist",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;

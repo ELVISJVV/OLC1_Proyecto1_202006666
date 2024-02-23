@@ -20,7 +20,7 @@ public class Main {
 
         String entrada = """
                 PROGRAM
-                 console::print = "Hola Mundo"," a" END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
+                 console::print = "Hola Mundo"," a" , "adad", "ADAD",56,"ada",2,2END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
                 console::print = SUM(3,8.9),"hoáéíoúAÁÉÍÓÚ Ñ ñ6455.o078rdla" END;
                   <! Esto es
                    un comentario Multilínea !>
