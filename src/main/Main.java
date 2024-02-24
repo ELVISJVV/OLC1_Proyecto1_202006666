@@ -13,32 +13,32 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Funcionando...");
-//        AppView view = new AppView();
-//       view.setVisible(true);
+        AppView view = new AppView();
+       view.setVisible(true);
 
 
 
         String entrada = """
-                PROGRAM
-                 console::print = "Hola Mundo"," a" , "adad", "ADAD",56,"ada",2,2END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
-                console::print = SUM(3,8.9),"hoáéíoúAÁÉÍÓÚ Ñ ñ6455.o078rdla" END;
-                  <! Esto es
-                   un comentario Multilínea !>
-                console::print = SUM(3,SUM(1,2)) end;
-                     ! Esto es un comentario de una sola línea
-                END PROGRAM<! Esto es un c
-                  999999
-
-                  áéíoúAÁÉÍÓÚ Ñ ñ
-                  !ADadad<<<!
-
-                  omentario  Multilínea !>
+                    PROGRAM
+                     console::print = "Hola Mundo"," a" , "adad", "ADAD",56,"ada",2,2END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
+                    console::print = SUM(3,8.9),"hoáéíoúAÁÉÍÓÚ Ñ ñ6455.o078rdla" END;
+                      <! Esto es
+                       un comentario Multilínea !>
+                    console::print = SUM(3,SUM(1,2)) end;
+                         ! Esto es un comentario de una sola línea
+                    END PROGRAM<! Esto es un c
+                      999999
+    
+                      áéíoúAÁÉÍÓÚ Ñ ñ
+                      !ADadad<<<!
+    
+                      omentario  Multilínea !>
                   
                   """;
 
         // Generar Analizadores
 //      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
-        analizar(entrada);
+//        analizar(entrada);
     }
 
     public static void analizadores(String ruta, String jflexFile, String cupFile) {

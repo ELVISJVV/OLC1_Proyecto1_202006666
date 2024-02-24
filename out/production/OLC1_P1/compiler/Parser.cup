@@ -125,6 +125,9 @@ printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq
 expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
            | CADENA:val        {:RESULT = val.replaceAll("\"", ""); :}
            | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
-
+              | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
+                | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
+                | RRES PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Resta(izq.toString(),der.toString()); :}
+                | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
 ;
 

@@ -1,5 +1,7 @@
 package GUI;
 
+import main.Main;
+
 import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
@@ -233,15 +235,19 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
         int selectedIndex = tabbedPane.getSelectedIndex();
-        System.out.println(selectedIndex);
+        Main.stringConsola = "";
+        textAreaConsola.setText("");
+//        System.out.println(selectedIndex);
         if (selectedIndex != -1) {
             Component selectedComponent = tabbedPane.getComponentAt(selectedIndex);
             if (selectedComponent instanceof JScrollPane scrollPane1) {
                 Component viewport = scrollPane1.getViewport().getView();
                 if (viewport instanceof JTextArea textArea) {
                     String text = textArea.getText();
-                    System.out.println(text);
-                    // Aquí puedes copiar el texto a donde lo necesites
+//                    System.out.println(text);
+                    Main.analizar(text);
+
+                    textAreaConsola.setText(Main.stringConsola);
                 }
             }
         }
@@ -249,6 +255,7 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
+        Main.analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
     }//GEN-LAST:event_btnReportsActionPerformed
 
     // functions
