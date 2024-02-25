@@ -29,7 +29,7 @@ comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
 letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 id = {letra}({letra}|{entero})*
-BLANCOS=[ \r\t]+
+
 %%
 // ------------  Reglas Lexicas -------------------
 //------> Palabras Reservadas
@@ -84,7 +84,7 @@ BLANCOS=[ \r\t]+
 {comentarioMultilinea}    {  }
 
 {id}            { return new Symbol(sym.ID, yycolumn, yyline, yytext()); }
-{BLANCOS}      {}
+
 
 
 //------> Ingorados

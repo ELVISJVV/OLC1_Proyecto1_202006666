@@ -29,7 +29,7 @@ comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
 letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 id = {letra}({letra}|{entero})*
-BLANCOS=[ \r\t]+
+
 %%
 // ------------  Reglas Lexicas -------------------
 //------> Palabras Reservadas
@@ -65,7 +65,6 @@ BLANCOS=[ \r\t]+
 ":"         {return new Symbol(sym.DOSPUNTOS, yycolumn, yyline, yytext());}
 "."         {return new Symbol(sym.PUNTO, yycolumn, yyline, yytext());}
 "@"        {return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());}
-//"""        {return new Symbol(sym.COMILLAS, yycolumn, yyline, yytext());}
 "\""        {return new Symbol(sym.COMILLAS, yycolumn, yyline, yytext());}
 
 // Operadores
@@ -84,7 +83,7 @@ BLANCOS=[ \r\t]+
 {comentarioMultilinea}    {  }
 
 {id}            { return new Symbol(sym.ID, yycolumn, yyline, yytext()); }
-{BLANCOS}      {}
+
 
 
 //------> Ingorados
