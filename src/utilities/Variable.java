@@ -8,7 +8,7 @@ public class Variable {
 
     private String nombre;
     private String tipo;
-    private String valor;
+
     private int fila;
     private int columna;
 
@@ -33,9 +33,7 @@ public class Variable {
         return tipo;
     }
 
-    public String getValor() {
-        return valor;
-    }
+
 
     public String getNombre() {
         return nombre;
@@ -56,13 +54,21 @@ public class Variable {
     public LinkedList<String> getLista() {
         return lista;
     }
-
-    public String toString() {
-        return "Variable: " + nombre + " de tipo " + tipo + " con valor " + valor + " en la línea " + fila + " y columna " + columna;
+    public Object obtenerValor() {
+        if (cadena != null) {
+            return cadena;
+        } else if (lista != null) {
+            return lista;
+        } else {
+            return null;
+        }
     }
+//    public String toString() {
+//        return "Variable: " + nombre + " de tipo " + tipo + " con valor " + valor + " en la línea " + fila + " y columna " + columna;
+//    }
 
     public String toStringHTML() {
-        return "<tr><td>" + nombre + "</td><td>" + tipo + "</td><td>" + valor + "</td><td>" + fila + "</td><td>" + columna + "</td></tr>";
+        return "<tr><td>" + nombre + "</td><td>" + tipo + "</td><td>" + obtenerValor() + "</td><td>" + fila + "</td><td>" + columna + "</td></tr>";
     }
 
 

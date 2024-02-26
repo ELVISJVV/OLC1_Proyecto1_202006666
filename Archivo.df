@@ -2,6 +2,8 @@ PROGRAM
                      console::print = "Hola Mundo"," a" , "adad", "ADAD",56,"ada",2,2END;  ! Esto es un   áéíoúAÁÉÍÓÚ Ñ ñcomentario 676
                   var:double:: numero <- 2.5 end;
 var:char[]::cadena <- "cadena" end;
+  console::print = cadena END;
+console::print = numero END;
 ! Ejemplos
 arr:double::@darray <- [1, 2, 3, 4, 5] end; ! Arreglo de tipo double
 arr:char[]::@carray <- ["hola","ada","d3","2"] end; ! Arreglo de tipo string

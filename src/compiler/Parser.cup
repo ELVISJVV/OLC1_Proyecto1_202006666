@@ -132,7 +132,13 @@ printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq
 
 
 
-declararVariable ::= RVAR DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ID MENOR MENOS expresion:val REND PYC {:RESULT = val.toString();:}
+declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS ID:var MENOR MENOS expresion:val REND PYC {:
+           main.Main.tablaSimbolos.put(var.toString(),
+                           new utilities.Variable(var.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
+                           System.out.println("Variable declarada: " + var.toString() + " - Tipo: " + tipo.toString() + " - Valor: " + val.toString());
+                           System.out.println("Fila: " + reservadaright + " - Columna: " + reservadaleft);
+
+:}
 
 ;
 
@@ -155,14 +161,23 @@ listaArray ::= listaArray COMA expresion:exp {:
 ;
 
 
-tipoDato ::= RCHAR CORCHIZQ CORCHDER
-            | RDOUBLE
+tipoDato ::= RCHAR:val CORCHIZQ CORCHDER    {: RESULT = val.toString(); :}
+            | RDOUBLE:val   {: RESULT = val.toString(); :}
 ;
 
 
 expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
            | CADENA:val        {:RESULT = val.toString(); :}
-           | ID:val            {:RESULT = val.toString(); :}
+           | ID:val            {:
+
+           utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(val.toString());
+            Object valor ;
+            if (variable != null) {
+
+            valor = variable.obtenerValor();
+            RESULT = valor;
+            }
+           :}
            | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
            | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
            | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
