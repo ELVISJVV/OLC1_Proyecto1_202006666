@@ -74,10 +74,7 @@ public class Lexer implements java_cup.runtime.Scanner {
     "\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34"+
     "\1\35\2\32\1\36\1\37\1\40\1\41\1\42\1\32"+
     "\1\43\1\44\1\45\1\46\1\47\1\32\1\50\1\32"+
-    "\1\51\12\0\1\3\73\0\1\32\7\0\1\32\3\0"+
-    "\1\32\3\0\1\32\1\0\1\32\6\0\1\32\6\0"+
-    "\1\32\7\0\1\32\3\0\1\32\3\0\1\32\1\0"+
-    "\1\32\6\0\1\32\65\0\2\54\115\0\1\55\u01a8\0"+
+    "\1\51\12\0\1\3\252\0\2\54\115\0\1\55\u01a8\0"+
     "\2\3\326\0\u0100\3";
 
   private static int [] zzUnpackcmap_blocks() {
@@ -793,7 +790,8 @@ public class Lexer implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);
+            { main.Main.listaErrores.add(new utilities.ErrorClass("Léxico", yytext(), yyline, yycolumn));
+//                System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);
             }
           // fall through
           case 41: break;

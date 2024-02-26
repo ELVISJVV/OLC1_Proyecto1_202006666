@@ -27,7 +27,8 @@ CARACTER = [^\r\n]
 comentario = "!"{CARACTER}*{double}?
 comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
-letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
+//letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
+letra = [a-zA-Z]+
 id = {letra}({letra}|{entero})*
 
 %%
@@ -90,5 +91,9 @@ id = {letra}({letra}|{entero})*
 [ \t\r\n\f ]     {/* Espacios en blanco se ignoran */}
 
 //------> Errores Léxicos
-.           	{ System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn); }
+.           	{ main.Main.listaErrores.add(new utilities.ErrorClass("Léxico", yytext(), yyline, yycolumn));
+//                System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);
+}
+
+//    System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);}
 

@@ -5,12 +5,17 @@ import GUI.AppView;
 
 
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.LinkedList;
+
 
 
 public class Main {
 
-    public static String stringConsola = "";
+    public static String stringConsola;
+    public static LinkedList<Object> listaErrores = new LinkedList<>();
 
+    public static HashMap<String,Object>  tablaSimbolos = new HashMap<>();
     public static void main(String[] args) {
         System.out.println("Funcionando...");
         AppView view = new AppView();
@@ -65,7 +70,14 @@ public class Main {
             System.out.println("Error fatal en compilación de entrada.");
             System.out.println(e);
         }
-    }
+
+
+  // recorrer linkedlis de errores
+        for (Object error : listaErrores) {
+            System.out.println(error);
+        }
+
+     }
 
 }
 
