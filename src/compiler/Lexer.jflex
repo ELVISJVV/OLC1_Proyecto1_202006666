@@ -53,6 +53,7 @@ id = {letra}({letra}|{entero})*
 "print"     { return new Symbol(sym.RPRINT, yycolumn, yyline, yytext()); }
 "char"      { return new Symbol(sym.RCHAR, yycolumn, yyline, yytext()); }
 "double"    { return new Symbol(sym.RDOUBLE, yycolumn, yyline, yytext()); }
+"arr"       { return new Symbol(sym.RARRAY, yycolumn, yyline, yytext()); }
 
 
 // Simbolos

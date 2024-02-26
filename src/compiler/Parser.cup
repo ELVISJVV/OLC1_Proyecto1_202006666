@@ -51,8 +51,9 @@ terminal String RPRINT;
 terminal String RCONSOLE;
 terminal String RCHAR;
 terminal String RDOUBLE;
+terminal String RARRAY;
 
-//terminal String RENDPRINT;
+
 
 terminal String EXCL;
 terminal String PARDER;
@@ -88,8 +89,8 @@ non terminal print;
 non terminal printlist;
 non terminal declararVariable;
 non terminal tipoDato;
-
-
+non terminal declararArreglo;
+non terminal listaArray;
 
 
 
@@ -113,6 +114,7 @@ listainstr ::= listainstr instruccion
 
 instruccion ::= print
                 | declararVariable
+                | declararArreglo
                 | error PYC
 
 ;
@@ -127,19 +129,33 @@ printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq
 ;
 
 
-expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
-           | CADENA:val        {:RESULT = val.toString(); :}
-           | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
-           | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
-           | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
-           | RRES PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Resta(izq.toString(),der.toString()); :}
-           | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
-;
+
 
 declararVariable ::= RVAR DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ID MENOR MENOS expresion:val REND PYC {:RESULT = val.toString();:}
 
 ;
 
+declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ARROBA ID MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:RESULT = val.toString();:}
+
+;
+
+listaArray ::= listaArray COMA expresion:val {:RESULT = val.toString();:}
+            | expresion:val {:RESULT = val.toString();:}
+;
+
+
 tipoDato ::= RCHAR CORCHIZQ CORCHDER
             | RDOUBLE
+;
+
+
+expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
+           | CADENA:val        {:RESULT = val.toString(); :}
+           | ID:val            {:RESULT = val.toString(); :}
+           | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
+           | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
+           | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
+           | RRES PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Resta(izq.toString(),der.toString()); :}
+           | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
+
 ;
