@@ -8,46 +8,48 @@ package compiler;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int DOSPUNTOS = 28;
+  public static final int DOSPUNTOS = 29;
   public static final int RDIV = 8;
   public static final int RMIN = 15;
   public static final int RMODA = 12;
-  public static final int DOUBLE = 37;
+  public static final int DOUBLE = 38;
   public static final int RMEDIA = 10;
   public static final int RMUL = 7;
   public static final int RMOD = 9;
   public static final int RPRINT = 16;
-  public static final int IGUAL = 33;
-  public static final int CORCHIZQ = 25;
-  public static final int ARROBA = 30;
+  public static final int IGUAL = 34;
+  public static final int CORCHIZQ = 26;
+  public static final int ARROBA = 31;
   public static final int RDOUBLE = 19;
   public static final int RCONSOLE = 17;
-  public static final int ID = 39;
-  public static final int EXCL = 21;
-  public static final int PARIZQ = 23;
+  public static final int ID = 40;
+  public static final int EXCL = 22;
+  public static final int PARIZQ = 24;
   public static final int EOF = 0;
   public static final int RSUM = 6;
   public static final int REND = 3;
-  public static final int COMILLAS = 31;
+  public static final int IDARRAY = 41;
+  public static final int COMILLAS = 32;
   public static final int error = 1;
-  public static final int COMA = 27;
-  public static final int CADENA = 38;
+  public static final int COMA = 28;
+  public static final int CADENA = 39;
+  public static final int RCOLUMN = 21;
   public static final int RARRAY = 20;
-  public static final int MENOS = 32;
-  public static final int MENOR = 34;
+  public static final int MENOS = 33;
+  public static final int MENOR = 35;
   public static final int RMAX = 14;
   public static final int RVAR = 4;
   public static final int RCHAR = 18;
-  public static final int MAYOR = 35;
-  public static final int PUNTO = 29;
-  public static final int CORCHDER = 26;
-  public static final int IGUALIGUAL = 36;
+  public static final int MAYOR = 36;
+  public static final int PUNTO = 30;
+  public static final int CORCHDER = 27;
+  public static final int IGUALIGUAL = 37;
   public static final int RVARIANZA = 13;
   public static final int RRES = 5;
-  public static final int PARDER = 22;
+  public static final int PARDER = 23;
   public static final int RMEDIANA = 11;
   public static final int RPROGRAM = 2;
-  public static final int PYC = 24;
+  public static final int PYC = 25;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -70,6 +72,7 @@ public class sym {
   "RCHAR",
   "RDOUBLE",
   "RARRAY",
+  "RCOLUMN",
   "EXCL",
   "PARDER",
   "PARIZQ",
@@ -88,7 +91,8 @@ public class sym {
   "IGUALIGUAL",
   "DOUBLE",
   "CADENA",
-  "ID"
+  "ID",
+  "IDARRAY"
   };
 }
 

@@ -53,6 +53,7 @@ terminal String RCONSOLE;
 terminal String RCHAR;
 terminal String RDOUBLE;
 terminal String RARRAY;
+terminal String RCOLUMN;
 
 
 
@@ -80,6 +81,7 @@ terminal String IGUALIGUAL;
 terminal String DOUBLE;
 terminal String CADENA;
 terminal String ID;
+terminal String IDARRAY;
 
 
 //------> Declaración de no terminales
@@ -92,6 +94,7 @@ non terminal declararVariable;
 non terminal tipoDato;
 non terminal declararArreglo;
 non terminal listaArray;
+non terminal tipoPrint;
 
 
 
@@ -116,20 +119,25 @@ listainstr ::= listainstr instruccion
 instruccion ::= print
                 | declararVariable
                 | declararArreglo
+//                | printArray
                 | error PYC
 
 ;
 
 
 
-print ::=  RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL printlist:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
+print ::=  RCONSOLE DOSPUNTOS DOSPUNTOS tipoPrint REND PYC   {::}
+
+//print ::=  RCONSOLE DOSPUNTOS DOSPUNTOS RPRINT IGUAL printlist:exp REND PYC   {: utilities.Instruction.print(exp.toString()); :}
 ;
 
+tipoPrint ::= RPRINT IGUAL printlist:exp {: utilities.Instruction.print(exp.toString()); :}
+            |  RCOLUMN IGUAL expresion MENOS MAYOR expresion
+
+            ;
 printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq.toString() + ", " + der.toString();:}
               | expresion:val                                {: RESULT = val.toString(); :}
 ;
-
-
 
 
 declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS ID:var MENOR MENOS expresion:val REND PYC {:
@@ -142,7 +150,7 @@ declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS 
 
 ;
 
-declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ARROBA ID MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:
+declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS IDARRAY MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:
 //RESULT = val.toString();
 :}
 
@@ -178,10 +186,11 @@ expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
             RESULT = valor;
             }
            :}
+           | IDARRAY:val       {: RESULT = val.toString(); :}
            | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
            | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
            | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
            | RRES PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Resta(izq.toString(),der.toString()); :}
            | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
-
+           | CORCHIZQ printlist:val CORCHDER   {: RESULT = val.toString(); :}
 ;

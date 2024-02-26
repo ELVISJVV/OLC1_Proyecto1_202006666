@@ -30,6 +30,7 @@ entero = [0-9]+
 //letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 letra = [a-zA-Z]+
 id = {letra}({letra}|{entero})*
+idArray = "@"{id}
 
 %%
 // ------------  Reglas Lexicas -------------------
@@ -59,7 +60,7 @@ id = {letra}({letra}|{entero})*
 "char"      { return new Symbol(sym.RCHAR, yycolumn, yyline, yytext()); }
 "double"    { return new Symbol(sym.RDOUBLE, yycolumn, yyline, yytext()); }
 "arr"       { return new Symbol(sym.RARRAY, yycolumn, yyline, yytext()); }
-
+"column"    { return new Symbol(sym.RCOLUMN, yycolumn, yyline, yytext()); }
 
 // Simbolos
 "!"         {return new Symbol(sym.EXCL, yycolumn, yyline, yytext());}
@@ -74,6 +75,7 @@ id = {letra}({letra}|{entero})*
 "@"        {return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());}
 "\""        {return new Symbol(sym.COMILLAS, yycolumn, yyline, yytext());}
 
+
 // Operadores
 "+"         {}
 "-"         {return new Symbol(sym.MENOS, yycolumn, yyline, yytext());}
@@ -83,11 +85,13 @@ id = {letra}({letra}|{entero})*
 "=="        {return new Symbol(sym.IGUALIGUAL, yycolumn, yyline, yytext());}
 
 
+
 // Expresiones
 {double}        { return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext()); }
 {cadena}        { return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
 {comentario}    {}
 {comentarioMultilinea}    {  }
+{idArray}       { return new Symbol(sym.IDARRAY, yycolumn, yyline, yytext()); }
 
 {id}            { return new Symbol(sym.ID, yycolumn, yyline, yytext()); }
 
