@@ -235,8 +235,7 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
         int selectedIndex = tabbedPane.getSelectedIndex();
-        Main.stringConsola = "";
-        Main.listaErrores.clear();
+
         textAreaConsola.setText("");
 //        System.out.println(selectedIndex);
         if (selectedIndex != -1) {

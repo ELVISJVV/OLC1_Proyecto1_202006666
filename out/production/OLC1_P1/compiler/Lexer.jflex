@@ -35,9 +35,14 @@ id = {letra}({letra}|{entero})*
 // ------------  Reglas Lexicas -------------------
 //------> Palabras Reservadas
 
-"PROGRAM"   { return new Symbol(sym.RPROGRAM, yycolumn, yyline, yytext()); }
-"END"       { return new Symbol(sym.REND, yycolumn, yyline, yytext()); }
-"VAR"       { return new Symbol(sym.RVAR, yycolumn, yyline, yytext()); }
+"PROGRAM"   { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RPROGRAM, yycolumn, yyline, yytext()); }
+"END"       {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.REND, yycolumn, yyline, yytext()); }
+"VAR"       {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RVAR, yycolumn, yyline, yytext()); }
 "RES"       { return new Symbol(sym.RRES, yycolumn, yyline, yytext()); }
 "SUM"       { return new Symbol(sym.RSUM, yycolumn, yyline, yytext()); }
 "MUL"       { return new Symbol(sym.RMUL, yycolumn, yyline, yytext()); }

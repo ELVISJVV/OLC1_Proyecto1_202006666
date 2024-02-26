@@ -912,7 +912,8 @@ public class Lexer implements java_cup.runtime.Scanner {
           // fall through
           case 65: break;
           case 25:
-            { return new Symbol(sym.REND, yycolumn, yyline, yytext());
+            { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.REND, yycolumn, yyline, yytext());
             }
           // fall through
           case 66: break;
@@ -947,7 +948,8 @@ public class Lexer implements java_cup.runtime.Scanner {
           // fall through
           case 72: break;
           case 32:
-            { return new Symbol(sym.RVAR, yycolumn, yyline, yytext());
+            { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RVAR, yycolumn, yyline, yytext());
             }
           // fall through
           case 73: break;
@@ -987,7 +989,8 @@ public class Lexer implements java_cup.runtime.Scanner {
           // fall through
           case 80: break;
           case 40:
-            { return new Symbol(sym.RPROGRAM, yycolumn, yyline, yytext());
+            { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RPROGRAM, yycolumn, yyline, yytext());
             }
           // fall through
           case 81: break;

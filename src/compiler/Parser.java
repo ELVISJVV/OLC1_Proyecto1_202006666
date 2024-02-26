@@ -6,6 +6,7 @@
 package compiler;
 
 import java_cup.runtime.*;
+import java.util.LinkedList;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -371,7 +372,9 @@ class CUP$Parser$actions {
 		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
-		RESULT = val.toString();
+		
+//RESULT = val.toString();
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("declararArreglo",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-13)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -380,10 +383,14 @@ class CUP$Parser$actions {
           case 13: // listaArray ::= listaArray COMA expresion 
             {
               Object RESULT =null;
-		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
-		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
-		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		RESULT = val.toString();
+		int expleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+		int expright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+		Object exp = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
+		
+//LinkedList<String> lista = (LinkedList<String>) listexp;
+//lista.add(exp.toString());
+//RESULT = lista;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("listaArray",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -392,10 +399,14 @@ class CUP$Parser$actions {
           case 14: // listaArray ::= expresion 
             {
               Object RESULT =null;
-		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
-		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
-		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		RESULT = val.toString();
+		int expleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+		int expright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+		Object exp = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
+		
+//            LinkedList<String> lista = new LinkedList<>();
+//            lista.add(exp.toString());
+//            RESULT = lista;
+            
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("listaArray",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;

@@ -1,19 +1,19 @@
 package utilities;
 
 public class Token {
-    private int lexema   ;
+    private String lexema   ;
     private String tiṕo;
     private int fila;
     private int columna;
 
-    public Token(int lexema, String tipo, int fila, int columna) {
+    public Token(String lexema, String tipo, int fila, int columna) {
         this.lexema = lexema;
         this.tiṕo = tipo;
         this.fila = fila;
         this.columna = columna;
     }
 
-    public int getLexema() {
+    public String getLexema() {
         return lexema;
     }
 

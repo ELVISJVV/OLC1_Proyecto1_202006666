@@ -15,7 +15,7 @@ public class Main {
 
     public static String stringConsola;
     public static LinkedList<Object> listaErrores = new LinkedList<>();
-
+    public static LinkedList<Object> listaTokens = new LinkedList<>();
     public static HashMap<String,Object>  tablaSimbolos = new HashMap<>();
     public static void main(String[] args) {
         System.out.println("Funcionando...");
@@ -63,6 +63,9 @@ public class Main {
 
     // Realizar Analisis
     public static void analizar(String entrada) {
+        Main.stringConsola = "";
+        Main.listaErrores.clear();
+        Main.listaTokens.clear();
         try {
             compiler.Lexer lexer = new compiler.Lexer(new StringReader(entrada));
             compiler.Parser parser = new compiler.Parser(lexer);
@@ -76,8 +79,12 @@ public class Main {
 
 
   // recorrer linkedlis de errores
-        for (Object error : listaErrores) {
-            System.out.println(error);
+//        for (Object error : listaErrores) {
+//            System.out.println(error);
+//        }
+
+        for (Object token : listaTokens) {
+            System.out.println(token);
         }
 
 
