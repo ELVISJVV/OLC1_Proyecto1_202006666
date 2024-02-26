@@ -438,13 +438,19 @@ class CUP$Parser$actions {
           case 15: // listaArray ::= listaArray COMA expresion 
             {
               Object RESULT =null;
+		int listaexpleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
+		int listaexpright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
+		Object listaexp = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
 		int expleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int expright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		Object exp = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-//LinkedList<String> lista = (LinkedList<String>) listexp;
-//lista.add(exp.toString());
-//RESULT = lista;
+
+
+LinkedList<String> lista = (LinkedList<String>) listaexp;
+lista.add(exp.toString());
+RESULT = lista;
+
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("listaArray",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -458,9 +464,9 @@ class CUP$Parser$actions {
 		int expright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		Object exp = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
-//            LinkedList<String> lista = new LinkedList<>();
-//            lista.add(exp.toString());
-//            RESULT = lista;
+            LinkedList<String> lista = new LinkedList<>();
+            lista.add(exp.toString());
+            RESULT = lista;
             
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("listaArray",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }

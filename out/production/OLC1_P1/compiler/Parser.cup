@@ -156,15 +156,18 @@ declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS IDARRAY MENOR 
 
 ;
 
-listaArray ::= listaArray COMA expresion:exp {:
-//LinkedList<String> lista = (LinkedList<String>) listexp;
-//lista.add(exp.toString());
-//RESULT = lista;
+listaArray ::= listaArray:listaexp COMA expresion:exp {:
+
+
+LinkedList<String> lista = (LinkedList<String>) listaexp;
+lista.add(exp.toString());
+RESULT = lista;
+
 :}
             | expresion:exp {:
-//            LinkedList<String> lista = new LinkedList<>();
-//            lista.add(exp.toString());
-//            RESULT = lista;
+            LinkedList<String> lista = new LinkedList<>();
+            lista.add(exp.toString());
+            RESULT = lista;
             :}
 ;
 
