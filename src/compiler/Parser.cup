@@ -77,7 +77,6 @@ terminal String IGUALIGUAL;
 
 terminal String DOUBLE;
 terminal String CADENA;
-//terminal String COMENTARIO ;
 terminal String ID;
 
 
@@ -86,7 +85,9 @@ non terminal inicio;
 non terminal listainstr;
 non terminal instruccion, expresion;
 non terminal print;
-nonterminal printlist;
+non terminal printlist;
+non terminal declararVariable;
+non terminal tipoDato;
 
 
 
@@ -111,6 +112,7 @@ listainstr ::= listainstr instruccion
 ;
 
 instruccion ::= print
+                | declararVariable
                 | error PYC
 
 ;
@@ -126,7 +128,7 @@ printlist ::= printlist:izq COMA expresion:der                   {: RESULT = izq
 
 
 expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
-           | CADENA:val        {:RESULT = val.replaceAll("\"", ""); :}
+           | CADENA:val        {:RESULT = val.toString(); :}
            | RSUM PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Suma(izq.toString(),der.toString()); :}
            | RMUL PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Multiplicacion(izq.toString(),der.toString()); :}
            | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
@@ -134,3 +136,10 @@ expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
            | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
 ;
 
+declararVariable ::= RVAR DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ID MENOR MENOS expresion:val REND PYC {:RESULT = val.toString();:}
+
+;
+
+tipoDato ::= RCHAR CORCHIZQ CORCHDER
+            | RDOUBLE
+;

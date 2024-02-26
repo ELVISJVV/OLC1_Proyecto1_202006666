@@ -4,6 +4,7 @@ package main;
 import GUI.AppView;
 
 
+
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -66,6 +67,8 @@ public class Main {
             compiler.Lexer lexer = new compiler.Lexer(new StringReader(entrada));
             compiler.Parser parser = new compiler.Parser(lexer);
             parser.parse();
+
+
         } catch (Exception e) {
             System.out.println("Error fatal en compilación de entrada.");
             System.out.println(e);
@@ -76,6 +79,8 @@ public class Main {
         for (Object error : listaErrores) {
             System.out.println(error);
         }
+
+
 
      }
 
