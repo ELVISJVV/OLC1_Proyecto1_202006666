@@ -13,11 +13,13 @@ parser code
 
     public void syntax_error(Symbol s)
     {
+            main.Main.listaErrores.add(new utilities.ErrorClass("Sintáctico", (String) s.value, s.right, s.left ));
             System.err.println("Error Sintactico: "+ s.value + " - Fila: " + s.right + " - Columna: " + s.left + ". Recuperado" );
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
     {
+            main.Main.listaErrores.add(new utilities.ErrorClass("Sintáctico", (String) s.value, s.right, s.left ));
             System.err.println("Error Sintactico: "+ s.value + " - Fila: " + s.right + " - Columna: " + s.left + ". Sin recuperacion." );
     }
 
@@ -109,6 +111,7 @@ listainstr ::= listainstr instruccion
 ;
 
 instruccion ::= print
+                | error PYC
 
 ;
 
