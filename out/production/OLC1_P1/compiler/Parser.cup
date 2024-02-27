@@ -194,4 +194,5 @@ expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
            | RMEDIA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Media(exp.toString()); :}
            | CORCHIZQ printlist:val CORCHDER   {: RESULT = "[" + val.toString() + "]"; :}
+           | RMAX PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Max(exp.toString()); :}
 ;

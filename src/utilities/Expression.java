@@ -85,4 +85,15 @@ public class Expression {
         return String.valueOf(resultado);
     }
 
+    public static String Max(String stringLista) {
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        double maximo = Double.parseDouble(linkedList.get(0));
+
+        for (String valor : linkedList) {
+            if (Double.parseDouble(valor) > maximo) {
+                maximo = Double.parseDouble(valor);
+            }
+        }
+        return String.valueOf(maximo);
+    }
 }
