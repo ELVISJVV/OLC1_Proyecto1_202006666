@@ -33,8 +33,6 @@ public class Variable {
         return tipo;
     }
 
-
-
     public String getNombre() {
         return nombre;
     }

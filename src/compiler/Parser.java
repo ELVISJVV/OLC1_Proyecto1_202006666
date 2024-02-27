@@ -361,7 +361,13 @@ class CUP$Parser$actions {
           case 10: // tipoPrint ::= RCOLUMN IGUAL expresion MENOS MAYOR expresion 
             {
               Object RESULT =null;
-
+		int exp1left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
+		int exp1right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
+		Object exp1 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
+		int exp2left = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+		int exp2right = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+		Object exp2 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
+		 utilities.Instruction.printArray(exp1.toString(),exp2.toString()); 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("tipoPrint",10, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-5)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -437,10 +443,10 @@ class CUP$Parser$actions {
 		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
-//RESULT = val.toString();
+
 main.Main.tablaSimbolos.put(id.toString(),
  new utilities.Variable(id.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
-// util.instruccion.mostrarLista((LinkedList<String>) val);
+
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("declararArreglo",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-12)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -559,7 +565,14 @@ RESULT = lista;
 		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		String val = (String)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
-		 RESULT = val.toString(); 
+		
+//             Object value = tablaSimbolos.get(val.toString());
+//                        utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(key);
+//                           if (variable != null) {
+//                                RESULT = variable.obtenerValor();
+//                            }
+            RESULT = val.toString();
+            
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("expresion",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -646,7 +659,7 @@ RESULT = lista;
 		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
-		 RESULT = val.toString(); 
+		 RESULT = "[" + val.toString() + "]"; 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("expresion",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
