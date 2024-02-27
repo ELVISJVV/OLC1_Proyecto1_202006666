@@ -18,10 +18,10 @@ public class Instruction {
         Main.stringConsola += titulo.replaceAll("\"", "") + "\n";
         Main.stringConsola += "----------------------" + "\n";
 
-        String stringArreglo = idLista;
+        String stringArreglo = idLista.replaceAll("\"", "");
         Variable variable = (Variable) main.Main.tablaSimbolos.get(idLista);
         if (variable != null) {
-            stringArreglo = variable.obtenerValor().toString();
+            stringArreglo = variable.obtenerValor().toString().replaceAll("\"", "");
         }
 
         LinkedList<String> linkedList = Extra.convertirALinkedlist(stringArreglo);
