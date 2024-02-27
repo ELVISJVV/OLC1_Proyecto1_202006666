@@ -4,6 +4,7 @@ import main.Main;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Expression {
 
@@ -129,5 +130,32 @@ public class Expression {
             median =(doubleList.get(n / 2));
         }
         return String.valueOf(median);
+    }
+
+    public static String Moda(String stringLista) {
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        LinkedList<Double> doubleList = new LinkedList<>();
+        for (String valor : linkedList) {
+            doubleList.add(Double.parseDouble(valor));
+        }
+
+        Collections.sort(doubleList);
+        int n = doubleList.size();
+        double moda = doubleList.getFirst();
+        int maxCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (Objects.equals(doubleList.get(j), doubleList.get(i))) {
+                    count++;
+                }
+            }
+            if (count > maxCount) {
+                moda = doubleList.get(i);
+                maxCount = count;
+            }
+        }
+        return String.valueOf(moda);
     }
 }

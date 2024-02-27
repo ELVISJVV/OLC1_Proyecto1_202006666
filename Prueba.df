@@ -5,7 +5,7 @@ var:char[]::cadena <- "cadennaaaa" end;
   console::print = cadena END;
 console::print = numero END;
 ! Ejemplos
-arr:double::@darray <- [7,3,4] end; ! Arreglo de tipo double
+arr:double::@darray <- [7,3,4,7] end; ! Arreglo de tipo double
 arr:char[]::@carray <- ["hola","ada","d3","2"] end; ! Arreglo de tipo string
 arr:double::@carray <- [numero, 98, 7] end; ! Puede usar variables
 console::column = "Enteros" -> @darray end;
@@ -14,6 +14,8 @@ console::print = "mediana",Mediana([9, 4, 3, 4,8, 5]) END;
 console::print = "mediana",Mediana(@darray) END;
 !console::print = Media([9, 4, 3, 4,8, 5]) END;
 !console::print = Media(@darray) END;
+console::print = "moda",moda([9, 4, 3, 4,8, 5,5]) END;
+console::print = "moda",moda(@darray) END;
                     END PROGRAM<! Esto es un c
                       999999
 
