@@ -2,6 +2,7 @@ package utilities;
 
 import main.Main;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class Expression {
@@ -107,5 +108,26 @@ public class Expression {
             }
         }
         return String.valueOf(minimo);
+    }
+
+    public static String Mediana(String stringLista) {
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        LinkedList<Double> doubleList = new LinkedList<>();
+        for (String valor : linkedList) {
+            doubleList.add(Double.parseDouble(valor));
+        }
+
+        Collections.sort(doubleList);
+        int n = doubleList.size();
+        double median;
+
+
+        if (n % 2 == 0) {
+
+            median = ((doubleList.get(n / 2)) + (doubleList.get((n -1)/2 )) )/ 2;
+        } else {
+            median =(doubleList.get(n / 2));
+        }
+        return String.valueOf(median);
     }
 }

@@ -196,4 +196,5 @@ expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | CORCHIZQ printlist:val CORCHDER   {: RESULT = "[" + val.toString() + "]"; :}
            | RMAX PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Max(exp.toString()); :}
            | RMIN PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Min(exp.toString()); :}
+              | RMEDIANA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Mediana(exp.toString()); :}
 ;
