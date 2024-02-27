@@ -13,19 +13,12 @@ public class Instruction {
     }
 
 
-    public static void printArray(String titulo, String idLista) {
+    public static void printArray(String titulo, String stringLista) {
         Main.stringConsola += "----------------------" + "\n";
         Main.stringConsola += titulo.replaceAll("\"", "") + "\n";
         Main.stringConsola += "----------------------" + "\n";
 
-        String stringArreglo = idLista.replaceAll("\"", "");
-        Variable variable = (Variable) main.Main.tablaSimbolos.get(idLista);
-        if (variable != null) {
-            stringArreglo = variable.obtenerValor().toString().replaceAll("\"", "");
-        }
-
-        LinkedList<String> linkedList = Extra.convertirALinkedlist(stringArreglo);
-
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
         for (String elemento : linkedList) {
             Main.stringConsola += elemento + "\n";
         }
