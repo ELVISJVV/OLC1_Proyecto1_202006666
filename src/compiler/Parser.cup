@@ -65,16 +65,13 @@ terminal String CORCHIZQ;
 terminal String CORCHDER;
 terminal String COMA;
 terminal String DOSPUNTOS;
-terminal String PUNTO;
-terminal String ARROBA;
-terminal String COMILLAS;
 
-//terminal String MAS;
+
 terminal String MENOS;
 terminal String IGUAL;
 terminal String MENOR;
 terminal String MAYOR;
-terminal String IGUALIGUAL;
+
 
 
 
@@ -119,7 +116,6 @@ listainstr ::= listainstr instruccion
 instruccion ::= print
                 | declararVariable
                 | declararArreglo
-//                | printArray
                 | error PYC
 
 ;
