@@ -10,8 +10,8 @@ arr:char[]::@carray <- ["hola","ada","d3","2"] end; ! Arreglo de tipo string
 arr:double::@carray <- [numero, 98, 7] end; ! Puede usar variables
 console::column = "Enteros" -> @darray end;
 !console::column = titulo -> [1, 2, 3, 4, 5] end;
-
-
+console::print = Media([9, 4, 3, 4, 5]) END;
+console::print = Media(@darray) END;
 
                     END PROGRAM<! Esto es un c
                       999999

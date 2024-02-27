@@ -192,5 +192,6 @@ expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | RDIV PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Division(izq.toString(),der.toString()); :}
            | RRES PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Resta(izq.toString(),der.toString()); :}
            | RMOD PARIZQ expresion:izq COMA expresion:der PARDER   {: RESULT = utilities.Expression.Modulo(izq.toString(),der.toString()); :}
+           | RMEDIA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Media(exp.toString()); :}
            | CORCHIZQ printlist:val CORCHDER   {: RESULT = "[" + val.toString() + "]"; :}
 ;

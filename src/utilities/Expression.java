@@ -2,6 +2,8 @@ package utilities;
 
 import main.Main;
 
+import java.util.LinkedList;
+
 public class Expression {
 
     public static String Suma(String izq, String der){
@@ -69,6 +71,17 @@ public class Expression {
         double resultado = val1 % val2;
 
         //Devolvemos un String con el resultado
+        return String.valueOf(resultado);
+    }
+
+    public static String Media(String stringLista) {
+ LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        double suma = 0;
+
+        for (String valor :linkedList) {
+            suma += Double.parseDouble(valor);
+        }
+        double resultado = suma / linkedList.size();
         return String.valueOf(resultado);
     }
 
