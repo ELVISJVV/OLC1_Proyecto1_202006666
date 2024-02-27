@@ -96,4 +96,16 @@ public class Expression {
         }
         return String.valueOf(maximo);
     }
+
+    public static String Min(String stringLista) {
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        double minimo = Double.parseDouble(linkedList.get(0));
+
+        for (String valor : linkedList) {
+            if (Double.parseDouble(valor) < minimo) {
+                minimo = Double.parseDouble(valor);
+            }
+        }
+        return String.valueOf(minimo);
+    }
 }
