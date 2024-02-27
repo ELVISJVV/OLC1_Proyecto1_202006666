@@ -424,11 +424,23 @@ class CUP$Parser$actions {
           case 14: // declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS IDARRAY MENOR MENOS CORCHIZQ listaArray CORCHDER REND PYC 
             {
               Object RESULT =null;
+		int reservadaleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-12)).left;
+		int reservadaright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-12)).right;
+		String reservada = (String)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-12)).value;
+		int tipoleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-10)).left;
+		int tiporight = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-10)).right;
+		Object tipo = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-10)).value;
+		int idleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;
+		int idright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).right;
+		String id = (String)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-7)).value;
 		int valleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		
 //RESULT = val.toString();
+main.Main.tablaSimbolos.put(id.toString(),
+ new utilities.Variable(id.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
+// util.instruccion.mostrarLista((LinkedList<String>) val);
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("declararArreglo",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-12)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
@@ -530,11 +542,10 @@ RESULT = lista;
 		
 
            utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(val.toString());
-            Object valor ;
+
             if (variable != null) {
 
-            valor = variable.obtenerValor();
-            RESULT = valor;
+            RESULT = variable.obtenerValor();
             }
            
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("expresion",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);

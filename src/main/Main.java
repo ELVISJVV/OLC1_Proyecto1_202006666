@@ -87,6 +87,16 @@ public class Main {
 //            System.out.println(token);
 //        }
 
+        for (String key : tablaSimbolos.keySet()) {
+            Object value = tablaSimbolos.get(key);
+            utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(key);
+//            Object valor;
+//            = variable.obtenerValor();
+            System.out.println(key + ": " + variable.obtenerValor());
+            System.out.println("Tipo: " + variable.getTipo());
+            System.out.println("Fila: " + variable.getFila());
+            System.out.println("Columna: " + variable.getColumna());
+        }
 
 
 

@@ -150,8 +150,11 @@ declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS 
 
 ;
 
-declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS IDARRAY MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:
+declararArreglo ::= RARRAY:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS IDARRAY:id MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:
 //RESULT = val.toString();
+main.Main.tablaSimbolos.put(id.toString(),
+ new utilities.Variable(id.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
+// util.instruccion.mostrarLista((LinkedList<String>) val);
 :}
 
 ;
@@ -182,11 +185,10 @@ expresion ::= DOUBLE:val   {: RESULT = val.toString(); :}
            | ID:val            {:
 
            utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(val.toString());
-            Object valor ;
+
             if (variable != null) {
 
-            valor = variable.obtenerValor();
-            RESULT = valor;
+            RESULT = variable.obtenerValor();
             }
            :}
            | IDARRAY:val       {: RESULT = val.toString(); :}
