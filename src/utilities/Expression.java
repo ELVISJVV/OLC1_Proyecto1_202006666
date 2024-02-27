@@ -158,4 +158,24 @@ public class Expression {
         }
         return String.valueOf(moda);
     }
+
+    public static String Varianza(String stringLista) {
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        LinkedList<Double> doubleList = new LinkedList<>();
+
+        double media = Double.parseDouble(Media(stringLista));
+        for (String valor : linkedList) {
+            doubleList.add(Double.parseDouble(valor));
+        }
+
+        double sumaCuadradosDiferencias = 0.0;
+        for (double numero : doubleList) {
+            sumaCuadradosDiferencias += Math.pow(numero - media, 2);
+        }
+
+        int cantidadNumeros = doubleList.size();
+
+        return String.valueOf( sumaCuadradosDiferencias / (cantidadNumeros - 1));
+
+    }
 }

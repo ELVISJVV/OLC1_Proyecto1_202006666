@@ -198,4 +198,5 @@ expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | RMIN PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Min(exp.toString()); :}
            | RMEDIANA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Mediana(exp.toString()); :}
            | RMODA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Moda(exp.toString()); :}
+           | RVARIANZA PARIZQ expresion:exp PARDER   {: RESULT = utilities.Expression.Varianza(exp.toString()); :}
 ;

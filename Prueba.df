@@ -16,6 +16,11 @@ console::print = "mediana",Mediana(@darray) END;
 !console::print = Media(@darray) END;
 console::print = "moda",moda([9, 4, 3, 4,8, 5,5]) END;
 console::print = "moda",moda(@darray) END;
+console::print = "varianza",varianza([9, 4, 3, 4,8, 5,5]) END;
+console::print = "varianza",varianza(@darray) END;
+arr:double::@arregloPrueba <- [7,12,3,9,10,11,3,4,7] end; ! Arreglo de tipo double
+console::print = "varianza",varianza(@arregloPrueba) END;
+
                     END PROGRAM<! Esto es un c
                       999999
 
