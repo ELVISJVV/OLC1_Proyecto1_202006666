@@ -54,7 +54,16 @@ terminal String RCHAR;
 terminal String RDOUBLE;
 terminal String RARRAY;
 terminal String RCOLUMN;
-
+terminal String RGRAPHBAR;
+terminal String RGRAPHPIE;
+terminal String RGRAPHLINE;
+terminal String RHISTOGRAM;
+terminal String REXEC;
+terminal String RTITULO;
+terminal String REJEX;
+terminal String REJEY;
+terminal String RTITULOX;
+terminal String RTITULOY;
 
 
 terminal String EXCL;
@@ -92,6 +101,11 @@ non terminal tipoDato;
 non terminal declararArreglo;
 non terminal listaArray;
 non terminal tipoPrint;
+non terminal tipoGrafica;
+non terminal graficar;
+non terminal listainstrgrafica;
+non terminal instruccionGrafica;
+
 
 
 
@@ -116,8 +130,28 @@ listainstr ::= listainstr instruccion
 instruccion ::= print
                 | declararVariable
                 | declararArreglo
+                | graficar
                 | error PYC
 
+;
+
+graficar ::= tipoGrafica PARIZQ listainstrgrafica PARDER REND PYC {:
+//            main.Main.listaGraficas.add(new utilities.Grafica(tipoGrafica.toString(),listainstrgrafica));:}
+
+ ;
+
+ listainstrgrafica ::= listainstrgrafica instruccionGrafica{::}
+                    | instruccionGrafica{::}
+                    ;
+
+instruccionGrafica ::=
+
+;
+
+ tipoGrafica ::= RGRAPHBAR
+                | RGRAPHPIE
+                | RGRAPHLINE
+                | RHISTOGRAM
 ;
 
 
@@ -177,7 +211,7 @@ expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | CADENA:val        {:RESULT = val.toString(); :}
            | ID:val            {:
 
-           utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(val.toString());
+           utilities.Variable variable = main.Main.tablaSimbolos.get(val.toString());
             if (variable != null) {
             RESULT = variable.obtenerValor();
             }

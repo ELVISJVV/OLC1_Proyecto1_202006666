@@ -600,7 +600,7 @@ main.Main.tablaSimbolos.put(id.toString(),
 		String val = (String)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
 
-           utilities.Variable variable = (utilities.Variable) main.Main.tablaSimbolos.get(val.toString());
+           utilities.Variable variable = main.Main.tablaSimbolos.get(val.toString());
             if (variable != null) {
             RESULT = variable.obtenerValor();
             }

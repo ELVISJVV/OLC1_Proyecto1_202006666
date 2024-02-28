@@ -95,6 +95,45 @@ idArray = "@"{id}
 "column"    {
     main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RCOLUMN, yycolumn, yyline, yytext()); }
+"graphBar"  {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RGRAPHBAR, yycolumn, yyline, yytext()); }
+"graphLine" {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RGRAPHLINE, yycolumn, yyline, yytext()); }
+"graphPie"  {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RGRAPHPIE, yycolumn, yyline, yytext());
+}
+"Histogram" {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RHISTOGRAM, yycolumn, yyline, yytext());
+}
+"EXEC"      {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.REXEC, yycolumn, yyline, yytext());
+}
+"titulo"    {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RTITULO, yycolumn, yyline, yytext());
+}
+"ejeX"      {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.REJEX, yycolumn, yyline, yytext());
+}
+"ejeY"      {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.REJEY, yycolumn, yyline, yytext());
+}
+"tituloX"   {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RTITULOX, yycolumn, yyline, yytext());
+}
+"tituloY"   {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RTITULOY, yycolumn, yyline, yytext());
+}
+
 
 // Simbolos
 "!"         {
