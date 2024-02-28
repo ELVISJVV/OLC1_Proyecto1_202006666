@@ -33,7 +33,5 @@ public class Token {
         return "Tipo: " + tipo + " con el lexema " + lexema + " en la línea " + fila + " y columna " + columna;
     }
 
-    public String toStringHTML() {
-        return "<tr><td>" + tipo + "</td><td>" + lexema + "</td><td>" + fila + "</td><td>" + columna + "</td></tr>";
-    }
+
 }

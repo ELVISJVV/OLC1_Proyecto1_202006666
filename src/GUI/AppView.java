@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import static utilities.Reporte.*;
+
 public class AppView extends javax.swing.JFrame {
 
     private static int fileCounter = 1;
@@ -255,7 +257,11 @@ public class AppView extends javax.swing.JFrame {
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
-        Main.analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
+//        Main.analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
+        crearReporteTokens();
+        crearReporteErrores();
+        crearReporteTablaSimbolos();
+
     }//GEN-LAST:event_btnReportsActionPerformed
 
     // functions

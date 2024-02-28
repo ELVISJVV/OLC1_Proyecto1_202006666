@@ -33,11 +33,6 @@ public class ErrorClass {
         return "Error: " + tipo + " en la línea " + fila + " y columna " + columna + " con el lexema " + lexema;
     }
 
-    public String toStringHTML() {
-        return "<tr><td>" + tipo + "</td><td>" + lexema + "</td><td>" + fila + "</td><td>" + columna + "</td></tr>";
-    }
-
-
 
 
 }

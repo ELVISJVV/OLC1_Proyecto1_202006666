@@ -4,6 +4,7 @@ package main;
 import GUI.AppView;
 import utilities.ErrorClass;
 import utilities.Token;
+import utilities.Variable;
 
 
 import java.io.StringReader;
@@ -19,7 +20,7 @@ public class Main {
     public static String stringConsola;
     public static LinkedList<ErrorClass> listaErrores = new LinkedList<>();
     public static LinkedList<Token> listaTokens = new LinkedList<>();
-    public static HashMap<String,Object>  tablaSimbolos = new HashMap<>();
+    public static HashMap<String, Variable>  tablaSimbolos = new HashMap<>();
     public static void main(String[] args) {
         System.out.println("Funcionando...");
         AppView view = new AppView();
@@ -46,7 +47,7 @@ public class Main {
                   """;
 
         // Generar Analizadores
-//      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
+      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
 //        analizar(entrada);
     }
 
@@ -62,8 +63,7 @@ public class Main {
             System.out.println("No se ha podido generar los analizadores");
             System.out.println(e);
         }
-        crearReporteTokens();
-        crearReporteErrores();
+
     }
 
     // Realizar Analisis

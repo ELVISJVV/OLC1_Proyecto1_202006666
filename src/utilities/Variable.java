@@ -63,9 +63,6 @@ public class Variable {
     }
 
 
-    public String toStringHTML() {
-        return "<tr><td>" + nombre + "</td><td>" + tipo + "</td><td>" + obtenerValor() + "</td><td>" + fila + "</td><td>" + columna + "</td></tr>";
-    }
 
 
 
