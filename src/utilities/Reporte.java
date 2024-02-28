@@ -59,4 +59,60 @@ public class Reporte {
         Extra.escribirArchivo("ReporteTokens.html", reporte);
     }
 
+
+    public static void crearReporteErrores() {
+        int contador = 1;
+        String reporte = "<!DOCTYPE html>\n" +
+                "<html lang=\"es\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Reporte de Errores</title>\n" +
+                "    <style>\n" +
+                "        table {\n" +
+                "            width: 100%;\n" +
+                "            border-collapse: collapse;\n" +
+                "        }\n" +
+                "        th, td {\n" +
+                "            border: 1px solid black;\n" +
+                "            padding: 15px;\n" +
+                "            text-align: left;\n" +
+                "        }\n" +
+                "        th {\n" +
+                "            background-color: #4CAF50;\n" +
+                "            color: white;\n" +
+                "        }\n" +
+                "        caption {\n" +
+                "            font-size: 30px;\n" +
+                "            font-weight: bold;\n" +
+                "            margin-bottom: 20px;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "    <table border=\"1\">\n" +
+                "<caption>Reporte de Errores</caption>\n" +
+                "            <th>#</th>\n" +
+                "            <th>Tipo</th>\n" +
+                    "            <th>Lexema</th>\n" +
+                "            <th>Línea</th>\n" +
+                "            <th>Columna</th>\n";
+
+        for (ErrorClass error : main.Main.listaErrores) {
+            reporte +=
+                    "        <tr>\n" +
+                            "<td>" + contador++ + "</td>\n" +
+                            "<td>" + error.getTipo() + "</td>\n" +
+                            "<td>" + error.getLexema() + "</td>\n" +
+                            "<td>" + error.getLinea() + "</td>\n" +
+                            "<td>" + error.getColumna() + "</td>\n" +
+                            "        </tr>\n";
+        }
+
+        reporte += "    </table>\n" +
+                "</body>\n" +
+                "</html>";
+
+        Extra.escribirArchivo("ReporteErrores.html", reporte);
+    }
+
 }

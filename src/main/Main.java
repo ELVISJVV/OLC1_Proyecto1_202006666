@@ -10,6 +10,7 @@ import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import static utilities.Reporte.crearReporteErrores;
 import static utilities.Reporte.crearReporteTokens;
 
 
@@ -62,6 +63,7 @@ public class Main {
             System.out.println(e);
         }
         crearReporteTokens();
+        crearReporteErrores();
     }
 
     // Realizar Analisis
