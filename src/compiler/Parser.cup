@@ -103,8 +103,9 @@ non terminal listaArray;
 non terminal tipoPrint;
 non terminal tipoGrafica;
 non terminal graficar;
-non terminal listainstrgrafica;
-non terminal instruccionGrafica;
+non terminal listaSentenciasBar;
+non terminal sentenciasBar;
+
 
 
 
@@ -132,30 +133,42 @@ instruccion ::= print
                 | declararArreglo
                 | graficar
                 | error PYC
-
 ;
 
-graficar ::= tipoGrafica PARIZQ listainstrgrafica REXEC tipoGrafica REND PYC REND PYC {::}
-//            main.Main.listaGraficas.add(new utilities.Grafica(tipoGrafica.toString(),listainstrgrafica));:}
-
- ;
-
- listainstrgrafica ::= listainstrgrafica instruccionGrafica{::}
-                    | instruccionGrafica{::}
- ;
-
-instruccionGrafica ::=    RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
-                        | REJEX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
-                        | REJEY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
-                        | RTITULOX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
-                        | RTITULOY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+graficar ::= tipoGrafica
 ;
 
- tipoGrafica ::= RGRAPHBAR
+//grafica ::= tipoGrafica EXEC tipoGrafica END END;
+
+//sentencia ::= TITULO "::" CHAR END
+// | LABEL "::" CHAR_LIST END
+// | VALUES "::" DOUBLE_LIST END;
+//
+//
+//TipoGrafica = pie listasentenciaspie
+//   | line listas listasentencia
+//
+//Listasentencpie= Listasentencpie sentencispie
+//| sentenciapie
+
+listaSentenciasBar ::= listaSentenciasBar sentenciasBar
+                    | sentenciasBar
+;
+
+tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC {::}
                 | RGRAPHPIE
                 | RGRAPHLINE
                 | RHISTOGRAM
 ;
+
+sentenciasBar ::= RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+                | REJEX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+                | REJEY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+                | RTITULOX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+                | RTITULOY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {::}
+
+;
+
 
 
 
