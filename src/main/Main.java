@@ -3,6 +3,7 @@ package main;
 
 import GUI.AppView;
 import utilities.ErrorClass;
+import utilities.GraphBar;
 import utilities.Token;
 import utilities.Variable;
 
@@ -20,6 +21,11 @@ public class Main {
     public static LinkedList<ErrorClass> listaErrores = new LinkedList<>();
     public static LinkedList<Token> listaTokens = new LinkedList<>();
     public static HashMap<String, Variable>  tablaSimbolos = new HashMap<>();
+
+    public static HashMap<String, String>  sentenciasGraph = new HashMap<>();
+
+    public static GraphBar graphBar = new GraphBar("", "", "", "", "");
+
     public static void main(String[] args) {
         System.out.println("Funcionando...");
         AppView view = new AppView();
@@ -46,7 +52,7 @@ public class Main {
                   """;
 
         // Generar Analizadores
-      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
+//      analizadores("src/compiler/", "Lexer.jflex", "Parser.cup");
 //        analizar(entrada);
     }
 

@@ -103,8 +103,9 @@ non terminal listaArray;
 non terminal tipoPrint;
 non terminal tipoGrafica;
 non terminal graficar;
-non terminal listainstrgrafica;
-non terminal instruccionGrafica;
+non terminal listaSentenciasBar;
+non terminal sentenciasBar;
+
 
 
 
@@ -132,27 +133,39 @@ instruccion ::= print
                 | declararArreglo
                 | graficar
                 | error PYC
-
 ;
 
-graficar ::= tipoGrafica PARIZQ listainstrgrafica PARDER REND PYC {:
-//            main.Main.listaGraficas.add(new utilities.Grafica(tipoGrafica.toString(),listainstrgrafica));:}
-
- ;
-
- listainstrgrafica ::= listainstrgrafica instruccionGrafica{::}
-                    | instruccionGrafica{::}
-                    ;
-
-instruccionGrafica ::=
-
+graficar ::= tipoGrafica
 ;
 
- tipoGrafica ::= RGRAPHBAR
+
+listaSentenciasBar ::= listaSentenciasBar sentenciasBar
+                    | sentenciasBar
+;
+
+tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC {:
+                System.out.println("Grafica de barras");
+                System.out.println("Titulo: " + main.Main.sentenciasGraph.get("titulo"));
+                System.out.println("Eje X: " + main.Main.sentenciasGraph.get("ejeX"));
+                System.out.println("Eje Y: " + main.Main.sentenciasGraph.get("ejeY"));
+                System.out.println("Titulo X: " + main.Main.sentenciasGraph.get("tituloX"));
+                System.out.println("Titulo Y: " + main.Main.sentenciasGraph.get("tituloY"));
+:}
                 | RGRAPHPIE
                 | RGRAPHLINE
                 | RHISTOGRAM
 ;
+
+sentenciasBar ::= RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {:
+                 main.Main.sentenciasGraph.put("titulo",exp.toString());
+ :}
+                | REJEX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("ejeX",exp.toString());:}
+                | REJEY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("ejeY",exp.toString());;:}
+                | RTITULOX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("tituloX",exp.toString());;:}
+                | RTITULOY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("tituloY",exp.toString());;:}
+
+;
+
 
 
 

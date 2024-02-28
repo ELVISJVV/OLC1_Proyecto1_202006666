@@ -29,5 +29,13 @@ PROGRAM
 Buena suerte
 Deben generar todas las graficas en una ejecucion
  !>
-
+graphBar(
+	!testing de variables en graficas
+		titulo::char[] = "Gráfica de Línea" end;
+		ejeX::char[] = @labels end;
+		ejeY::double = @notas end;
+		tituloX::char[] = "Actividades" end;
+		tituloY::char[] = "Notas" end;
+		EXEC graphBar end;
+	) end;
 END PROGRAM
