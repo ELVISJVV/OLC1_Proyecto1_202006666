@@ -2,20 +2,22 @@
 package main;
 
 import GUI.AppView;
-
+import utilities.ErrorClass;
+import utilities.Token;
 
 
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import static utilities.Reporte.crearReporteTokens;
 
 
 public class Main {
 
     public static String stringConsola;
-    public static LinkedList<Object> listaErrores = new LinkedList<>();
-    public static LinkedList<Object> listaTokens = new LinkedList<>();
+    public static LinkedList<ErrorClass> listaErrores = new LinkedList<>();
+    public static LinkedList<Token> listaTokens = new LinkedList<>();
     public static HashMap<String,Object>  tablaSimbolos = new HashMap<>();
     public static void main(String[] args) {
         System.out.println("Funcionando...");
@@ -59,6 +61,7 @@ public class Main {
             System.out.println("No se ha podido generar los analizadores");
             System.out.println(e);
         }
+        crearReporteTokens();
     }
 
     // Realizar Analisis

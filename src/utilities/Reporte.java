@@ -1,0 +1,62 @@
+package utilities;
+
+public class Reporte {
+
+    public static void crearReporteTokens(){
+        int contador = 1;
+        String reporte = "<!DOCTYPE html>\n" +
+                "<html lang=\"es\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Reporte de Tokens</title>\n" +
+                "    <style>\n" +
+                "        table {\n" +
+                "            width: 100%;\n" +
+                "            border-collapse: collapse;\n" +
+                "        }\n" +
+                "        th, td {\n" +
+                "            border: 1px solid black;\n" +
+                "            padding: 15px;\n" +
+                "            text-align: left;\n" +
+                "        }\n" +
+                "        th {\n" +
+                "            background-color: #4CAF50;\n" +
+                "            color: white;\n" +
+                "        }\n" +
+                "        caption {\n" +
+                "            font-size: 30px;\n" +
+                "            font-weight: bold;\n" +
+                "            margin-bottom: 20px;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "    <table border=\"1\">\n" +
+                "<caption>Reporte de Tokens</caption>\n" +
+                "            <th>#</th>\n" +
+                "            <th>Lexema</th>\n" +
+                "            <th>Tipo</th>\n" +
+                "            <th>Línea</th>\n" +
+                "            <th>Columna</th>\n" ;
+
+
+        for (Token token : main.Main.listaTokens) {
+            reporte +=
+                    "        <tr>\n" +
+                    "<td>" + contador++ + "</td>\n" +
+                            "<td>" + token.getLexema() + "</td>\n" +
+                    "<td>" + token.getTipo() + "</td>\n" +
+                    "<td>" + token.getFila() + "</td>\n" +
+                    "<td>" + token.getColumna() + "</td>\n" +
+                    "        </tr>\n";
+        }
+
+
+        reporte +=  "    </table>\n" +
+                "</body>\n" +
+                "</html>";
+
+        Extra.escribirArchivo("ReporteTokens.html", reporte);
+    }
+
+}

@@ -148,7 +148,9 @@ idArray = "@"{id}
     main.Main.listaTokens.add(new utilities.Token(yytext() ,"Char", yyline, yycolumn));
     return new Symbol(sym.CADENA, yycolumn, yyline, yytext()); }
 {comentario}    {}
-{comentarioMultilinea}    {  }
+
+{comentarioMultilinea}    {}
+
 {idArray}       {
     main.Main.listaTokens.add(new utilities.Token(yytext() ,"Id Array", yyline, yycolumn));
     return new Symbol(sym.IDARRAY, yycolumn, yyline, yytext()); }
