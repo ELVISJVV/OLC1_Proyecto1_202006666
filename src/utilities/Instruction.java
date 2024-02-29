@@ -7,6 +7,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.statistics.HistogramDataset;
 
 
 import java.awt.*;
@@ -100,5 +101,26 @@ public class Instruction {
         sentenciasGraph.clear();
 
 
+    }
+
+    public static void graficarHistograma(){
+
+        LinkedList<String> listaValues = funcionComplementariaArray(sentenciasGraph.get("values"));
+//        convertir linkedlist a double[]
+        double[] values = new double[listaValues.size()];
+        for (int i = 0; i < listaValues.size(); i++) {
+            values[i] = Double.parseDouble(listaValues.get(i));
+        }
+
+        HistogramDataset dataset = new HistogramDataset();
+        dataset.addSeries("Frecuencia de los Datos", values, 20);
+
+        JFreeChart histogram = ChartFactory.createHistogram(sentenciasGraph.get("titulo").replaceAll("\"", ""),
+                "Datos", "Frecuencia", dataset,
+                PlotOrientation.VERTICAL,
+                true, true, true);
+
+        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"", ""), histogram);
+        sentenciasGraph.clear();
     }
 }

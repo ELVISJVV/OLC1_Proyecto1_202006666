@@ -109,6 +109,8 @@ non terminal listaSentenciasBar;
 non terminal sentenciasBar;
 non terminal listaSentenciasPie;
 non terminal sentenciasPie;
+non terminal listaSentenciasHistograma;
+non terminal sentenciasHistograma;
 
 
 
@@ -148,17 +150,20 @@ listaSentenciasBar ::= listaSentenciasBar sentenciasBar
 ;
 
 tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC {:
-                System.out.println("Grafica de barras");
-                System.out.println("Titulo: " + main.Main.sentenciasGraph.get("titulo"));
-                System.out.println("Eje X: " + main.Main.sentenciasGraph.get("ejeX"));
-                System.out.println("Eje Y: " + main.Main.sentenciasGraph.get("ejeY"));
-                System.out.println("Titulo X: " + main.Main.sentenciasGraph.get("tituloX"));
-                System.out.println("Titulo Y: " + main.Main.sentenciasGraph.get("tituloY"));
                 utilities.Instruction.graficarBarra();
 :}
                 | RGRAPHPIE PARIZQ listaSentenciasPie REXEC RGRAPHPIE REND PYC PARDER REND PYC {:utilities.Instruction.graficarPie();:}
                 | RGRAPHLINE PARIZQ listaSentenciasBar REXEC RGRAPHLINE REND PYC PARDER REND PYC {:utilities.Instruction.graficarLinea();:}
-                | RHISTOGRAM
+                | RHISTOGRAM PARIZQ listaSentenciasHistograma REXEC RHISTOGRAM REND PYC PARDER REND PYC {:utilities.Instruction.graficarHistograma();:}
+;
+
+listaSentenciasHistograma ::= listaSentenciasHistograma sentenciasHistograma
+                    | sentenciasHistograma
+;
+
+sentenciasHistograma ::= RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {:main.Main.sentenciasGraph.put("titulo",exp.toString());:}
+                | RVALUES DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("values",exp.toString());:}
+
 ;
 
 
