@@ -2,7 +2,7 @@ package utilities;
 
 public class Reporte {
 
-    public static void crearReporteTokens(){
+    public static void crearReporteTokens() {
         int contador = 1;
         String reporte = "<!DOCTYPE html>\n" +
                 "<html lang=\"es\">\n" +
@@ -37,22 +37,22 @@ public class Reporte {
                 "            <th>Lexema</th>\n" +
                 "            <th>Tipo</th>\n" +
                 "            <th>Línea</th>\n" +
-                "            <th>Columna</th>\n" ;
+                "            <th>Columna</th>\n";
 
 
         for (Token token : main.Main.listaTokens) {
             reporte +=
                     "        <tr>\n" +
-                    "<td>" + contador++ + "</td>\n" +
+                            "<td>" + contador++ + "</td>\n" +
                             "<td>" + token.getLexema() + "</td>\n" +
-                    "<td>" + token.getTipo() + "</td>\n" +
-                    "<td>" + token.getFila() + "</td>\n" +
-                    "<td>" + token.getColumna() + "</td>\n" +
-                    "        </tr>\n";
+                            "<td>" + token.getTipo() + "</td>\n" +
+                            "<td>" + token.getFila() + "</td>\n" +
+                            "<td>" + token.getColumna() + "</td>\n" +
+                            "        </tr>\n";
         }
 
 
-        reporte +=  "    </table>\n" +
+        reporte += "    </table>\n" +
                 "</body>\n" +
                 "</html>";
 
@@ -93,7 +93,7 @@ public class Reporte {
                 "<caption>Reporte de Errores</caption>\n" +
                 "            <th>#</th>\n" +
                 "            <th>Tipo</th>\n" +
-                    "            <th>Lexema</th>\n" +
+                "            <th>Lexema</th>\n" +
                 "            <th>Línea</th>\n" +
                 "            <th>Columna</th>\n";
 

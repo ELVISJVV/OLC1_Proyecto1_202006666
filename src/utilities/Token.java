@@ -1,7 +1,7 @@
 package utilities;
 
 public class Token {
-    private String lexema   ;
+    private String lexema;
     private String tipo;
     private int fila;
     private int columna;

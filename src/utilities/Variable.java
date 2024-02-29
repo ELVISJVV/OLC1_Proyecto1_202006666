@@ -21,7 +21,7 @@ public class Variable {
         this.columna = columna;
     }
 
-    public Variable(String nombre, String tipo, LinkedList<String>  lista, int fila, int columna, boolean esVariable) {
+    public Variable(String nombre, String tipo, LinkedList<String> lista, int fila, int columna) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.lista = lista;
@@ -52,6 +52,7 @@ public class Variable {
     public LinkedList<String> getLista() {
         return lista;
     }
+
     public Object obtenerValor() {
         if (cadena != null) {
             return cadena;
@@ -61,10 +62,6 @@ public class Variable {
             return null;
         }
     }
-
-
-
-
 
 
 }

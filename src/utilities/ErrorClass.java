@@ -1,8 +1,8 @@
 package utilities;
 
 public class ErrorClass {
-   private String tipo;
-   private String lexema;
+    private String tipo;
+    private String lexema;
     private int fila;
     private int columna;
 
@@ -32,7 +32,6 @@ public class ErrorClass {
     public String toString() {
         return "Error: " + tipo + " en la línea " + fila + " y columna " + columna + " con el lexema " + lexema;
     }
-
 
 
 }

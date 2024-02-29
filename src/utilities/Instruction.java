@@ -2,31 +2,23 @@ package utilities;
 
 import main.Main;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.statistics.HistogramDataset;
 
-
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static main.Main.sentenciasGraph;
-import static utilities.Extra.crearGrafica;
-import static utilities.Extra.funcionComplementariaArray;
+import static utilities.Extra.*;
 
 public class Instruction {
 
     public static void print(String message) {
         message = message.replaceAll("\"", "");
         Main.stringConsola += message + "\n";
-        System.out.println(message);
+
     }
 
 
@@ -103,7 +95,7 @@ public class Instruction {
 
     }
 
-    public static void graficarHistograma(){
+    public static void graficarHistograma() {
 
         LinkedList<String> listaValues = funcionComplementariaArray(sentenciasGraph.get("values"));
 //        convertir linkedlist a double[]
@@ -121,6 +113,10 @@ public class Instruction {
                 true, true, true);
 
         crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"", ""), histogram);
+
+        encontrarFrecuencias(values, sentenciasGraph.get("titulo").replaceAll("\"", ""));
+
+
         sentenciasGraph.clear();
     }
 }

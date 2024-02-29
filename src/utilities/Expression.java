@@ -1,6 +1,5 @@
 package utilities;
 
-import main.Main;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -8,7 +7,7 @@ import java.util.Objects;
 
 public class Expression {
 
-    public static String Suma(String izq, String der){
+    public static String Suma(String izq, String der) {
 
         // Casteamos los valores
         double val1 = Double.parseDouble(izq);
@@ -77,10 +76,10 @@ public class Expression {
     }
 
     public static String Media(String stringLista) {
- LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
+        LinkedList<String> linkedList = Extra.funcionComplementariaArray(stringLista);
         double suma = 0;
 
-        for (String valor :linkedList) {
+        for (String valor : linkedList) {
             suma += Double.parseDouble(valor);
         }
         double resultado = suma / linkedList.size();
@@ -125,9 +124,9 @@ public class Expression {
 
         if (n % 2 == 0) {
 
-            median = ((doubleList.get(n / 2)) + (doubleList.get((n -1)/2 )) )/ 2;
+            median = ((doubleList.get(n / 2)) + (doubleList.get((n - 1) / 2))) / 2;
         } else {
-            median =(doubleList.get(n / 2));
+            median = (doubleList.get(n / 2));
         }
         return String.valueOf(median);
     }
@@ -175,7 +174,7 @@ public class Expression {
 
         int cantidadNumeros = doubleList.size();
 
-        return String.valueOf( sumaCuadradosDiferencias / (cantidadNumeros - 1));
+        return String.valueOf(sumaCuadradosDiferencias / (cantidadNumeros - 1));
 
     }
 }

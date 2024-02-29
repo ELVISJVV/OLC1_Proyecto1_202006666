@@ -866,9 +866,6 @@ class CUP$Parser$actions {
 		
            main.Main.tablaSimbolos.put(var.toString(),
                            new utilities.Variable(var.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
-                           System.out.println("Variable declarada: " + var.toString() + " - Tipo: " + tipo.toString() + " - Valor: " + val.toString());
-                           System.out.println("Fila: " + reservadaright + " - Columna: " + reservadaleft);
-
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("declararVariable",6, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-10)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }

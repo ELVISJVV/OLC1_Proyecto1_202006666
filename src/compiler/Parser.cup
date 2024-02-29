@@ -205,9 +205,6 @@ printlist ::= printlist:izq COMA expresion:der               {: RESULT = izq.toS
 declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS ID:var MENOR MENOS expresion:val REND PYC {:
            main.Main.tablaSimbolos.put(var.toString(),
                            new utilities.Variable(var.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
-                           System.out.println("Variable declarada: " + var.toString() + " - Tipo: " + tipo.toString() + " - Valor: " + val.toString());
-                           System.out.println("Fila: " + reservadaright + " - Columna: " + reservadaleft);
-
 :}
 
 ;
