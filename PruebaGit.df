@@ -47,5 +47,22 @@ graphPie(
 		values::double = [50, 30, 20] end;
 		EXEC graphPie end;
 	) end;
+graphLine(
+	!testing de variables en graficas
+		titulo::char[] = "Gráfica de Línea" end;
+		ejeX::char[] = @labels end;
+		ejeY::double = @notas end;
+		tituloX::char[] = "Actividades" end;
+		tituloY::char[] = "Notas" end;
+		EXEC graphLine end;
+	) end;
+graphLine(
+        titulo::char[] = "Gráfica de Línea" end;
+ejeX::char[] = ["1 Parcial", "2 parcial", "Final"] end;
+ejeY::double = [50, 30, 70] end;
+tituloX::char[] = "Actividades" end;
+tituloY::char[] = "Notas" end;
+EXEC graphLine end;
+) end;
 
 END PROGRAM

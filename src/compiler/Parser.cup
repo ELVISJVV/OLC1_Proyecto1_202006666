@@ -157,7 +157,7 @@ tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PAR
                 utilities.Instruction.graficarBarra();
 :}
                 | RGRAPHPIE PARIZQ listaSentenciasPie REXEC RGRAPHPIE REND PYC PARDER REND PYC {:utilities.Instruction.graficarPie();:}
-                | RGRAPHLINE
+                | RGRAPHLINE PARIZQ listaSentenciasBar REXEC RGRAPHLINE REND PYC PARDER REND PYC {:utilities.Instruction.graficarLinea();:}
                 | RHISTOGRAM
 ;
 

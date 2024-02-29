@@ -81,4 +81,24 @@ public class Instruction {
 
         sentenciasGraph.clear();
     }
+
+    public static void graficarLinea() {
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
+        LinkedList<String> listaEjeX = funcionComplementariaArray(sentenciasGraph.get("ejeX"));
+        LinkedList<String> listaEjeY = funcionComplementariaArray(sentenciasGraph.get("ejeY"));
+        for (int i = 0; i < listaEjeX.size(); i++) {
+            datos.addValue(Double.parseDouble(listaEjeY.get(i)), "GRÁFICA", listaEjeX.get(i));
+        }
+
+        JFreeChart grafica = ChartFactory.createLineChart(
+                sentenciasGraph.get("titulo").replaceAll("\"", ""),
+                sentenciasGraph.get("tituloX").replaceAll("\"", ""),
+                sentenciasGraph.get("tituloY").replaceAll("\"", ""),
+                datos);
+
+        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"", ""), grafica);
+        sentenciasGraph.clear();
+
+
+    }
 }
