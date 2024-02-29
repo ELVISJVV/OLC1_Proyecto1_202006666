@@ -150,6 +150,7 @@ tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PAR
                 System.out.println("Eje Y: " + main.Main.sentenciasGraph.get("ejeY"));
                 System.out.println("Titulo X: " + main.Main.sentenciasGraph.get("tituloX"));
                 System.out.println("Titulo Y: " + main.Main.sentenciasGraph.get("tituloY"));
+                utilities.Instruction.graficarBarra();
 :}
                 | RGRAPHPIE
                 | RGRAPHLINE

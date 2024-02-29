@@ -9,7 +9,7 @@ public class Extra {
 
     public static LinkedList<String> funcionComplementariaArray(String stringLista) {
         String stringArreglo = stringLista.replaceAll("\"", "");
-        Variable variable = (Variable) main.Main.tablaSimbolos.get(stringLista);
+        Variable variable = main.Main.tablaSimbolos.get(stringLista);
         if (variable != null) {
             stringArreglo = variable.obtenerValor().toString().replaceAll("\"", "");
         }

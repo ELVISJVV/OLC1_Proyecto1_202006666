@@ -43,12 +43,12 @@ public class Main {
                          ! Esto es un comentario de una sola línea
                     END PROGRAM<! Esto es un c
                       999999
-    
+
                       áéíoúAÁÉÍÓÚ Ñ ñ
                       !ADadad<<<!
-    
+
                       omentario  Multilínea !>
-                  
+
                   """;
 
         // Generar Analizadores
@@ -113,5 +113,4 @@ public class Main {
      }
 
 }
-
 

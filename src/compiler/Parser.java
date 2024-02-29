@@ -521,6 +521,7 @@ class CUP$Parser$actions {
                 System.out.println("Eje Y: " + main.Main.sentenciasGraph.get("ejeY"));
                 System.out.println("Titulo X: " + main.Main.sentenciasGraph.get("tituloX"));
                 System.out.println("Titulo Y: " + main.Main.sentenciasGraph.get("tituloY"));
+                utilities.Instruction.graficarBarra();
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("tipoGrafica",11, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-9)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
