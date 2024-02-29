@@ -73,10 +73,11 @@ public class Main {
 
     // Realizar Analisis
     public static void analizar(String entrada) {
-        Main.stringConsola = "";
-        Main.listaErrores.clear();
-        Main.listaTokens.clear();
-        Main.tablaSimbolos.clear();
+        stringConsola = "";
+        listaErrores.clear();
+        listaTokens.clear();
+        tablaSimbolos.clear();
+        sentenciasGraph.clear();
         try {
             compiler.Lexer lexer = new compiler.Lexer(new StringReader(entrada));
             compiler.Parser parser = new compiler.Parser(lexer);

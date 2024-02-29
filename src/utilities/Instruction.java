@@ -6,6 +6,7 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 
 import java.awt.*;
@@ -57,9 +58,27 @@ public class Instruction {
                 true, true, true);
 
 
-        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"",""), grafica);
+        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"", ""), grafica);
 
         sentenciasGraph.clear();
     }
 
+
+    public static void graficarPie() {
+
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        LinkedList<String> listaLabel = funcionComplementariaArray(sentenciasGraph.get("label"));
+        LinkedList<String> listaValues = funcionComplementariaArray(sentenciasGraph.get("values"));
+        for (int i = 0; i < listaValues.size(); i++) {
+            dataset.setValue(listaLabel.get(i), Double.parseDouble(listaValues.get(i)));
+        }
+
+
+        JFreeChart grafica =
+                ChartFactory.createPieChart(sentenciasGraph.get("titulo").replaceAll("\"", ""), dataset);
+
+        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"", ""), grafica);
+
+        sentenciasGraph.clear();
+    }
 }

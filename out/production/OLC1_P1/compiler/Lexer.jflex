@@ -133,6 +133,15 @@ idArray = "@"{id}
     main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RTITULOY, yycolumn, yyline, yytext());
 }
+"label"     {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RLABEL, yycolumn, yyline, yytext());
+}
+"values"    {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
+    return new Symbol(sym.RVALUES, yycolumn, yyline, yytext());
+}
+
 
 
 // Simbolos

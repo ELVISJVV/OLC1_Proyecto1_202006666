@@ -38,4 +38,14 @@ graphBar(
 		tituloY::char[] = "Notas" end;
 		EXEC graphBar end;
 	) end;
+graphPie(
+		<! FELICIDADES
+		La de pie es facil !>
+	
+		label::char[] = ["Uno", "Dos", "Tres"] end;
+		titulo::char[] = "Ejemplo Gráfica de Pie" end;
+		values::double = [50, 30, 20] end;
+		EXEC graphPie end;
+	) end;
+
 END PROGRAM
