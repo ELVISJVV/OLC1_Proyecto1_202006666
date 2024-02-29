@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static main.Main.sentenciasGraph;
+import static utilities.Extra.crearGrafica;
 import static utilities.Extra.funcionComplementariaArray;
 
 public class Instruction {
@@ -39,7 +40,7 @@ public class Instruction {
     }
 
     public static void graficarBarra() {
-        int contador = 1;
+
         DefaultCategoryDataset datos = new DefaultCategoryDataset();
         LinkedList<String> listaEjeX = funcionComplementariaArray(sentenciasGraph.get("ejeX"));
         LinkedList<String> listaEjeY = funcionComplementariaArray(sentenciasGraph.get("ejeY"));
@@ -54,24 +55,11 @@ public class Instruction {
                 datos,
                 PlotOrientation.VERTICAL,
                 true, true, true);
-        int width = 800;
-        int height = 600;
-
-        File barChart ;
-        do {
-            // Crear el nombre completo del archivo
-            String nombreArchivo = "graficas/" + sentenciasGraph.get("titulo").replaceAll("\"", "") + (contador > 1 ? "_" + contador : "") +  ".jpeg";
-            barChart = new File(nombreArchivo);
-            contador++;
-        } while (barChart.exists()); // Verificar si el archivo ya existe
 
 
-        try {
-            ChartUtilities.saveChartAsJPEG(barChart, grafica, width, height);
-            Desktop.getDesktop().open(barChart);
-        } catch (IOException ex) {
-            Logger.getLogger("BarChart").log(Level.SEVERE, null, ex);
-        }
+        crearGrafica(sentenciasGraph.get("titulo").replaceAll("\"",""), grafica);
+
+        sentenciasGraph.clear();
     }
 
 }
