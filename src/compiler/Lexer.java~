@@ -103,22 +103,22 @@ public class Lexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\1\1\4\1\5\1\6"+
-    "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\1"+
-    "\16\16\1\17\1\20\1\1\1\21\1\0\1\22\2\0"+
-    "\1\23\5\16\1\0\5\16\1\0\6\16\1\0\4\16"+
-    "\1\0\1\16\1\0\1\10\1\0\1\24\3\16\1\25"+
-    "\1\16\1\25\1\16\1\26\3\16\1\0\1\16\1\27"+
-    "\1\16\1\30\1\31\1\32\1\30\2\16\1\0\2\33"+
-    "\1\34\1\16\1\0\1\16\1\35\1\34\1\0\1\36"+
-    "\2\16\1\0\1\16\1\37\1\40\1\41\2\16\1\0"+
-    "\2\16\1\0\1\42\2\16\1\0\1\16\1\0\2\16"+
-    "\1\0\1\21\2\16\1\0\3\16\1\0\1\43\2\44"+
-    "\1\45\1\16\1\45\1\16\1\0\2\16\1\0\1\46"+
-    "\1\16\1\0\1\47\4\16\1\0\1\16\1\0\1\16"+
-    "\2\50\2\51\1\16\1\0\2\52\2\16\1\0\1\16"+
-    "\1\0\1\16\1\0\2\53\1\54\1\55\1\56\1\55"+
-    "\1\56\1\16\1\0\1\57\1\16\1\0\2\60\1\16"+
-    "\1\0\2\61\2\62\2\63";
+    "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
+    "\16\17\1\20\1\21\1\1\1\22\1\0\1\23\2\0"+
+    "\1\24\5\17\1\0\5\17\1\0\6\17\1\0\4\17"+
+    "\1\0\1\17\1\0\1\10\1\0\1\25\3\17\1\26"+
+    "\1\17\1\26\1\17\1\27\3\17\1\0\1\17\1\30"+
+    "\1\17\1\31\1\32\1\33\1\31\2\17\1\0\2\34"+
+    "\1\35\1\17\1\0\1\17\1\36\1\35\1\0\1\37"+
+    "\2\17\1\0\1\17\1\40\1\41\1\42\2\17\1\0"+
+    "\2\17\1\0\1\43\2\17\1\0\1\17\1\0\2\17"+
+    "\1\0\1\22\2\17\1\0\3\17\1\0\1\44\2\45"+
+    "\1\46\1\17\1\46\1\17\1\0\2\17\1\0\1\47"+
+    "\1\17\1\0\1\50\4\17\1\0\1\17\1\0\1\17"+
+    "\2\51\2\52\1\17\1\0\2\53\2\17\1\0\1\17"+
+    "\1\0\1\17\1\0\2\54\1\55\1\56\1\57\1\56"+
+    "\1\57\1\17\1\0\1\60\1\17\1\0\2\61\1\17"+
+    "\1\0\2\62\2\63\2\64";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[190];
@@ -853,305 +853,311 @@ public class Lexer implements java_cup.runtime.Scanner {
 //                System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);
             }
           // fall through
-          case 52: break;
+          case 53: break;
           case 2:
             { /* Espacios en blanco se ignoran */
             }
           // fall through
-          case 53: break;
+          case 54: break;
           case 3:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.EXCL, yycolumn, yyline, yytext());
             }
           // fall through
-          case 54: break;
+          case 55: break;
           case 4:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.PARIZQ, yycolumn, yyline, yytext());
             }
           // fall through
-          case 55: break;
+          case 56: break;
           case 5:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.PARDER, yycolumn, yyline, yytext());
             }
           // fall through
-          case 56: break;
+          case 57: break;
           case 6:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.COMA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 57: break;
+          case 58: break;
           case 7:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.MENOS, yycolumn, yyline, yytext());
             }
           // fall through
-          case 58: break;
+          case 59: break;
           case 8:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Double", yyline, yycolumn));
     return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext());
             }
           // fall through
-          case 59: break;
+          case 60: break;
           case 9:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.DOSPUNTOS, yycolumn, yyline, yytext());
             }
           // fall through
-          case 60: break;
+          case 61: break;
           case 10:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.PYC, yycolumn, yyline, yytext());
             }
           // fall through
-          case 61: break;
+          case 62: break;
           case 11:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.MENOR, yycolumn, yyline, yytext());
             }
           // fall through
-          case 62: break;
+          case 63: break;
           case 12:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.IGUAL, yycolumn, yyline, yytext());
             }
           // fall through
-          case 63: break;
+          case 64: break;
           case 13:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.MAYOR, yycolumn, yyline, yytext());
             }
           // fall through
-          case 64: break;
+          case 65: break;
           case 14:
+            { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
+    return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());
+            }
+          // fall through
+          case 66: break;
+          case 15:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Id", yyline, yycolumn));
     return new Symbol(sym.ID, yycolumn, yyline, yytext());
             }
           // fall through
-          case 65: break;
-          case 15:
+          case 67: break;
+          case 16:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.CORCHIZQ, yycolumn, yyline, yytext());
             }
           // fall through
-          case 66: break;
-          case 16:
+          case 68: break;
+          case 17:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.CORCHDER, yycolumn, yyline, yytext());
             }
           // fall through
-          case 67: break;
-          case 17:
+          case 69: break;
+          case 18:
             { 
             }
           // fall through
-          case 68: break;
-          case 18:
+          case 70: break;
+          case 19:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Char", yyline, yycolumn));
     return new Symbol(sym.CADENA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 69: break;
-          case 19:
+          case 71: break;
+          case 20:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Id Array", yyline, yycolumn));
     return new Symbol(sym.IDARRAY, yycolumn, yyline, yytext());
             }
           // fall through
-          case 70: break;
-          case 20:
+          case 72: break;
+          case 21:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RARRAY, yycolumn, yyline, yytext());
             }
           // fall through
-          case 71: break;
-          case 21:
+          case 73: break;
+          case 22:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RDIV, yycolumn, yyline, yytext());
             }
           // fall through
-          case 72: break;
-          case 22:
+          case 74: break;
+          case 23:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.REND, yycolumn, yyline, yytext());
             }
           // fall through
-          case 73: break;
-          case 23:
+          case 75: break;
+          case 24:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMAX, yycolumn, yyline, yytext());
             }
           // fall through
-          case 74: break;
-          case 24:
+          case 76: break;
+          case 25:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMIN, yycolumn, yyline, yytext());
             }
           // fall through
-          case 75: break;
-          case 25:
+          case 77: break;
+          case 26:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMOD, yycolumn, yyline, yytext());
             }
           // fall through
-          case 76: break;
-          case 26:
+          case 78: break;
+          case 27:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMUL, yycolumn, yyline, yytext());
             }
           // fall through
-          case 77: break;
-          case 27:
+          case 79: break;
+          case 28:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RRES, yycolumn, yyline, yytext());
             }
           // fall through
-          case 78: break;
-          case 28:
+          case 80: break;
+          case 29:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RSUM, yycolumn, yyline, yytext());
             }
           // fall through
-          case 79: break;
-          case 29:
+          case 81: break;
+          case 30:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RVAR, yycolumn, yyline, yytext());
             }
           // fall through
-          case 80: break;
-          case 30:
+          case 82: break;
+          case 31:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RCHAR, yycolumn, yyline, yytext());
             }
           // fall through
-          case 81: break;
-          case 31:
+          case 83: break;
+          case 32:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.REJEX, yycolumn, yyline, yytext());
             }
           // fall through
-          case 82: break;
-          case 32:
+          case 84: break;
+          case 33:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.REJEY, yycolumn, yyline, yytext());
             }
           // fall through
-          case 83: break;
-          case 33:
+          case 85: break;
+          case 34:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.REXEC, yycolumn, yyline, yytext());
             }
           // fall through
-          case 84: break;
-          case 34:
+          case 86: break;
+          case 35:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMODA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 85: break;
-          case 35:
+          case 87: break;
+          case 36:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RLABEL, yycolumn, yyline, yytext());
             }
           // fall through
-          case 86: break;
-          case 36:
+          case 88: break;
+          case 37:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMEDIA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 87: break;
-          case 37:
+          case 89: break;
+          case 38:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RPRINT, yycolumn, yyline, yytext());
             }
           // fall through
-          case 88: break;
-          case 38:
+          case 90: break;
+          case 39:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RCOLUMN, yycolumn, yyline, yytext());
             }
           // fall through
-          case 89: break;
-          case 39:
+          case 91: break;
+          case 40:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RDOUBLE, yycolumn, yyline, yytext());
             }
           // fall through
-          case 90: break;
-          case 40:
+          case 92: break;
+          case 41:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RTITULO, yycolumn, yyline, yytext());
             }
           // fall through
-          case 91: break;
-          case 41:
+          case 93: break;
+          case 42:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RVALUES, yycolumn, yyline, yytext());
             }
           // fall through
-          case 92: break;
-          case 42:
+          case 94: break;
+          case 43:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RCONSOLE, yycolumn, yyline, yytext());
             }
           // fall through
-          case 93: break;
-          case 43:
+          case 95: break;
+          case 44:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RMEDIANA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 94: break;
-          case 44:
+          case 96: break;
+          case 45:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RPROGRAM, yycolumn, yyline, yytext());
             }
           // fall through
-          case 95: break;
-          case 45:
+          case 97: break;
+          case 46:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RTITULOX, yycolumn, yyline, yytext());
             }
           // fall through
-          case 96: break;
-          case 46:
+          case 98: break;
+          case 47:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RTITULOY, yycolumn, yyline, yytext());
             }
           // fall through
-          case 97: break;
-          case 47:
+          case 99: break;
+          case 48:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RGRAPHBAR, yycolumn, yyline, yytext());
             }
           // fall through
-          case 98: break;
-          case 48:
+          case 100: break;
+          case 49:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RGRAPHPIE, yycolumn, yyline, yytext());
             }
           // fall through
-          case 99: break;
-          case 49:
+          case 101: break;
+          case 50:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RVARIANZA, yycolumn, yyline, yytext());
             }
           // fall through
-          case 100: break;
-          case 50:
+          case 102: break;
+          case 51:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RGRAPHLINE, yycolumn, yyline, yytext());
             }
           // fall through
-          case 101: break;
-          case 51:
+          case 103: break;
+          case 52:
             { main.Main.listaTokens.add(new utilities.Token(yytext() ,"Palabra Reservada", yyline, yycolumn));
     return new Symbol(sym.RHISTOGRAM, yycolumn, yyline, yytext());
             }
           // fall through
-          case 102: break;
+          case 104: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

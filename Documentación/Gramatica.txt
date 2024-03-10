@@ -1,0 +1,55 @@
+inicio ::= RPROGRAM listainstr REND RPROGRAM ;
+
+listainstr ::= listainstr instruccion | instruccion ;
+
+instruccion ::= print | declararVariable | declararArreglo | graficar | error PYC ;
+
+graficar ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC |
+             RGRAPHPIE PARIZQ listaSentenciasPie REXEC RGRAPHPIE REND PYC PARDER REND PYC |
+             RGRAPHLINE PARIZQ listaSentenciasBar REXEC RGRAPHLINE REND PYC PARDER REND PYC |
+             RHISTOGRAM PARIZQ listaSentenciasHistograma REXEC RHISTOGRAM REND PYC PARDER REND PYC ;
+
+listaSentenciasHistograma ::= listaSentenciasHistograma sentenciasHistograma | sentenciasHistograma ;
+
+sentenciasHistograma ::= RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                          RVALUES DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC ;
+
+listaSentenciasPie ::= listaSentenciasPie sentenciasPie | sentenciasPie ;
+
+sentenciasPie ::= RLABEL DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  RVALUES DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC ;
+
+sentenciasBar ::= RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  REJEX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  REJEY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  RTITULOX DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC |
+                  RTITULOY DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC ;
+
+print ::= RCONSOLE DOSPUNTOS DOSPUNTOS tipoPrint REND PYC ;
+
+tipoPrint ::= RPRINT IGUAL printlist | RCOLUMN IGUAL expresion MENOS MAYOR expresion ;
+
+printlist ::= printlist COMA expresion | expresion ;
+
+declararVariable ::= RVAR DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS ID MENOR MENOS expresion REND PYC ;
+
+declararArreglo ::= RARRAY DOSPUNTOS tipoDato DOSPUNTOS DOSPUNTOS IDARRAY MENOR MENOS CORCHIZQ listaArray CORCHDER REND PYC ;
+
+listaArray ::= listaArray COMA expresion | expresion ;
+
+tipoDato ::= RCHAR | RDOUBLE ;
+
+expresion ::= DOUBLE | CADENA | ID | IDARRAY |
+              RSUM PARIZQ expresion COMA expresion PARDER |
+              RMUL PARIZQ expresion COMA expresion PARDER |
+              RDIV PARIZQ expresion COMA expresion PARDER |
+              RRES PARIZQ expresion COMA expresion PARDER |
+              RMOD PARIZQ expresion COMA expresion PARDER |
+              RMEDIA PARIZQ expresion PARDER |
+              CORCHIZQ printlist CORCHDER |
+              RMAX PARIZQ expresion PARDER |
+              RMIN PARIZQ expresion PARDER |
+              RMEDIANA PARIZQ expresion PARDER |
+              RMODA PARIZQ expresion PARDER |
+              RVARIANZA PARIZQ expresion PARDER ;

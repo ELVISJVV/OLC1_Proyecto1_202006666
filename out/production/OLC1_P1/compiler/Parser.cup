@@ -76,6 +76,7 @@ terminal String CORCHIZQ;
 terminal String CORCHDER;
 terminal String COMA;
 terminal String DOSPUNTOS;
+terminal String ARROBA;
 
 
 terminal String MENOS;
@@ -103,7 +104,6 @@ non terminal tipoDato;
 non terminal declararArreglo;
 non terminal listaArray;
 non terminal tipoPrint;
-non terminal tipoGrafica;
 non terminal graficar;
 non terminal listaSentenciasBar;
 non terminal sentenciasBar;
@@ -141,20 +141,19 @@ instruccion ::= print
                 | error PYC
 ;
 
-graficar ::= tipoGrafica
-;
 
 
 listaSentenciasBar ::= listaSentenciasBar sentenciasBar
                     | sentenciasBar
 ;
 
-tipoGrafica ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC {:
+graficar ::= RGRAPHBAR PARIZQ listaSentenciasBar REXEC RGRAPHBAR REND PYC PARDER REND PYC {:
                 utilities.Instruction.graficarBarra();
 :}
                 | RGRAPHPIE PARIZQ listaSentenciasPie REXEC RGRAPHPIE REND PYC PARDER REND PYC {:utilities.Instruction.graficarPie();:}
                 | RGRAPHLINE PARIZQ listaSentenciasBar REXEC RGRAPHLINE REND PYC PARDER REND PYC {:utilities.Instruction.graficarLinea();:}
                 | RHISTOGRAM PARIZQ listaSentenciasHistograma REXEC RHISTOGRAM REND PYC PARDER REND PYC {:utilities.Instruction.graficarHistograma();:}
+
 ;
 
 listaSentenciasHistograma ::= listaSentenciasHistograma sentenciasHistograma
@@ -175,6 +174,7 @@ listaSentenciasPie ::= listaSentenciasPie sentenciasPie
 sentenciasPie ::= RLABEL DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {:main.Main.sentenciasGraph.put("label",exp.toString());:}
                 | RVALUES DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("values",exp.toString());:}
                 | RTITULO DOSPUNTOS DOSPUNTOS tipoDato IGUAL expresion:exp REND PYC {: main.Main.sentenciasGraph.put("titulo",exp.toString());:}
+
 ;
 
 
@@ -204,7 +204,7 @@ printlist ::= printlist:izq COMA expresion:der               {: RESULT = izq.toS
 
 declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS ID:var MENOR MENOS expresion:val REND PYC {:
            main.Main.tablaSimbolos.put(var.toString(),
-                           new utilities.Variable(var.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
+                           new utilities.Variable(var.toString(), "variable " + tipo.toString(),val.toString(),reservadaright,reservadaleft));
 :}
 
 ;
@@ -212,14 +212,13 @@ declararVariable ::= RVAR:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS 
 declararArreglo ::= RARRAY:reservada DOSPUNTOS tipoDato:tipo DOSPUNTOS DOSPUNTOS IDARRAY:id MENOR MENOS CORCHIZQ listaArray:val CORCHDER REND PYC {:
 
 main.Main.tablaSimbolos.put(id.toString(),
- new utilities.Variable(id.toString(), tipo.toString(),val.toString(),reservadaright,reservadaleft));
+ new utilities.Variable(id.toString(), "arreglo " + tipo.toString(),val.toString(),reservadaright,reservadaleft));
 
 :}
 
 ;
 
 listaArray ::= listaArray:listaexp COMA expresion:exp {:
-
                                                         LinkedList<String> lista = (LinkedList<String>) listaexp;
                                                         lista.add(exp.toString());
                                                         RESULT = lista;
@@ -240,7 +239,6 @@ tipoDato ::= RCHAR:val CORCHIZQ CORCHDER     {: RESULT = val.toString(); :}
 expresion ::= DOUBLE:val       {: RESULT = val.toString(); :}
            | CADENA:val        {:RESULT = val.toString(); :}
            | ID:val            {:
-
            utilities.Variable variable = main.Main.tablaSimbolos.get(val.toString());
             if (variable != null) {
             RESULT = variable.obtenerValor();

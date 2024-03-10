@@ -169,6 +169,9 @@ idArray = "@"{id}
 ":"         {
     main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
     return new Symbol(sym.DOSPUNTOS, yycolumn, yyline, yytext());}
+"@"        {
+    main.Main.listaTokens.add(new utilities.Token(yytext() ,"Simbolo", yyline, yycolumn));
+    return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());}
 
 
 // Operadores

@@ -14,37 +14,38 @@ public class sym {
   public static final int RGRAPHPIE = 23;
   public static final int RMIN = 15;
   public static final int RMODA = 12;
-  public static final int DOUBLE = 46;
+  public static final int DOUBLE = 47;
   public static final int RGRAPHBAR = 22;
   public static final int RMEDIA = 10;
   public static final int RMUL = 7;
   public static final int RLABEL = 32;
   public static final int RMOD = 9;
   public static final int RPRINT = 16;
-  public static final int IGUAL = 43;
+  public static final int IGUAL = 44;
   public static final int CORCHIZQ = 38;
+  public static final int ARROBA = 42;
   public static final int RDOUBLE = 19;
   public static final int RCONSOLE = 17;
-  public static final int ID = 48;
+  public static final int ID = 49;
   public static final int REXEC = 26;
   public static final int EXCL = 34;
   public static final int PARIZQ = 36;
   public static final int EOF = 0;
   public static final int REND = 3;
   public static final int RSUM = 6;
-  public static final int IDARRAY = 49;
+  public static final int IDARRAY = 50;
   public static final int error = 1;
   public static final int COMA = 40;
-  public static final int CADENA = 47;
+  public static final int CADENA = 48;
   public static final int RCOLUMN = 21;
   public static final int RARRAY = 20;
-  public static final int MENOS = 42;
-  public static final int MENOR = 44;
+  public static final int MENOS = 43;
+  public static final int MENOR = 45;
   public static final int RTITULO = 27;
   public static final int RMAX = 14;
   public static final int RVAR = 4;
   public static final int RCHAR = 18;
-  public static final int MAYOR = 45;
+  public static final int MAYOR = 46;
   public static final int RTITULOY = 31;
   public static final int RTITULOX = 30;
   public static final int CORCHDER = 39;
@@ -101,6 +102,7 @@ public class sym {
   "CORCHDER",
   "COMA",
   "DOSPUNTOS",
+  "ARROBA",
   "MENOS",
   "IGUAL",
   "MENOR",
