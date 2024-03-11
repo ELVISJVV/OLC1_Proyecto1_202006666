@@ -23,11 +23,9 @@ import java_cup.runtime.*;
 double = [0-9]+(\.[0-9]+)?
 cadena = [\"][^\n\"]*[\"]
 CARACTER = [^\r\n]
-//comentario = [!]([0-9]|[.])*[\n]
 comentario = "!"{CARACTER}*{double}?
 comentarioMultilinea = "<!"[^/]~"!>"
 entero = [0-9]+
-//letra = [a-zA-ZñÑáéíóúÁÉÍÓÚ]+
 letra = [a-zA-Z]+
 id = {letra}({letra}|{entero})*
 idArray = "@"{id}
