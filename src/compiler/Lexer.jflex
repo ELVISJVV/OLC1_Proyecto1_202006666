@@ -218,5 +218,5 @@ idArray = "@"{id}
 //                System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);
 }
 
-//    System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn);}
+
 
